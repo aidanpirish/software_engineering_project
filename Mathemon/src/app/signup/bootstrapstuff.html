@@ -1,0 +1,86 @@
+<h2 class="container signup">Create an account!</h2>
+
+
+
+<!-- ACCOUNT TYPE -->
+<div class="form-group container signup" id="account_type">
+    <label for="account_type">First question: are you a Student or Teacher?</label>
+    <select class="form-control" id="account_select" onchange="changeOptions(this)">
+      <option value="" selected="selected"></option>
+      <option name="teacher_form">Teacher</option>
+      <option name="student_form">Student</option>
+    </select>
+</div>
+
+
+<form name="student_form" class="container signup className" id="student_form" style="display:none">
+  <h2>Student Signup</h2>
+  <!-- TEACHER -->
+  <div class="form-group" id="teacher" style="display:none;">
+      <label for="teacher">Who is your teacher?</label>
+      <input type="text" class="form-control" id="teacher" placeholder="Teacher name">
+  </div>
+
+  <!-- FIRST NAME -->
+  <div class="form-group">
+    <label for="first_name">First name</label>
+    <input type="text" class="form-control" id="first_name" placeholder="First name">
+  </div>
+
+  <!-- LAST NAME -->
+  <div class="form-group">
+    <label for="last_name">Last name</label>
+    <input type="text" class="form-control" id="last_name" placeholder="Last name">
+  </div>
+  
+  <!-- EMAIL -->
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">If student, enter a parent or guardian's email.</small>
+  </div>
+
+  <!-- PASSWORD -->
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<form name="teacher_form" class="container signup className" id="teacher_form" style="display:none">
+    <h2>Teacher Signup</h2>
+    <!-- TEACHER -->
+    <div class="form-group" id="teacher" style="display:none;">
+        <label for="teacher">Who is your teacher?</label>
+        <input type="text" class="form-control" id="teacher" placeholder="Teacher name">
+    </div>
+  
+    <!-- FIRST NAME -->
+    <div class="form-group">
+      <label for="first_name">First name</label>
+      <input type="text" class="form-control" id="first_name" placeholder="First name">
+    </div>
+  
+    <!-- LAST NAME -->
+    <div class="form-group">
+      <label for="last_name">Last name</label>
+      <input type="text" class="form-control" id="last_name" placeholder="Last name">
+    </div>
+    
+    <!-- EMAIL -->
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">If student, enter a parent or guardian's email.</small>
+    </div>
+  
+    <!-- PASSWORD -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
