@@ -1,18 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1 class="animated bounceIn">
-    Welcome to {{ title }}!
-  </h1>
-  <img class="animated rotateIn" width="300" alt="Angular Logo" src="https://assets.pokemon.com/static2/_ui/img/global/three-characters.png">
-  <ul>
-   <li *ngFor="let item of items | async">
-     {{item.name}}
-   </li>
-  </ul>
-  <h1 class="animated fadeInDownBig">Do you like my animations?</h1>
+  <nav>
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a routerLink="/signup" routerLinkActive="active">Signup</a>
+  </nav>
 
 
-  <app-login></app-login>
-  <app-signup></app-signup>
+  <router-outlet></router-outlet>
+  <!-- <app-signup></app-signup> -->
 </div>
 
