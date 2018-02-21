@@ -1,5 +1,32 @@
-<button>Create a Student Account</button>
-<button>Create a Teacher Account</button>
 
-  
-  
+
+<form name="teacher_form" class="container" id="teacher_form">
+    
+    <h1>Signup Here!</h1>
+    
+    <!-- FIRST NAME -->
+    <div class="form-group">
+        <label for="first_name">First name</label>
+        <input type="text" class="form-control" id="first_name" placeholder="E.G. John">
+    </div>
+        
+    <!-- LAST NAME -->
+    <div class="form-group">
+        <label for="last_name">Last name</label>
+        <input type="text" class="form-control" id="last_name" placeholder="E.G. Smith">
+    </div>
+
+    <!-- EMAIL -->
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E.G. johnsmith@hotmail.com">
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
