@@ -12,11 +12,16 @@ import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup/signup.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { BattleGroundComponent } from './battle/battle-ground/battle-ground.component';
+import { MovesetBoxComponent } from './battle/moveset-box/moveset-box.component';
+import { MoveComponent } from './battle/move/move.component';
+import { BattleWindowComponent } from './battle/battle-window/battle-window.component';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
+  {path:'battleground',component:BattleGroundComponent},
   { path: '',
   redirectTo: '/home',
   pathMatch: 'full'
@@ -31,7 +36,11 @@ const appRoutes: Routes = [
     LoginComponent,
     SignupComponent,
     HomePageComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    BattleGroundComponent,
+    MovesetBoxComponent,
+    MoveComponent,
+    BattleWindowComponent
   ],
   imports: [
     BrowserModule,
