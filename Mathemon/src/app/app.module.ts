@@ -7,7 +7,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './authentication/login/login.component';
 import { CommonModule } from '@angular/common';
 import { SignupComponent } from './signup/signup.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -17,16 +17,12 @@ import { MovesetBoxComponent } from './battle/moveset-box/moveset-box.component'
 import { MoveComponent } from './battle/move/move.component';
 import { BattleWindowComponent } from './battle/battle-window/battle-window.component';
 import { HealthBarComponent } from './battle/health-bar/health-bar.component';
+import { AuthGuardService } from './authentication/auth-guard.service';
+import { AuthenticationRoutingModule } from './authentication/authentication-routing.module';
 
 const appRoutes: Routes = [
-  {path:'home', component:HomePageComponent},
-  {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
-  {path:'battleground',component:BattleGroundComponent},
-  { path: '',
-  redirectTo: '/home',
-  pathMatch: 'full'
-  },
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
   {path:'**',component:PageNotFoundComponent}
 ];
 
@@ -46,6 +42,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    AuthenticationRoutingModule,
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
