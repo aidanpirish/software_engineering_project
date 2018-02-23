@@ -1,3 +1,84 @@
-.custom-window{
-    min-height: 400px;
+.jumbotron {
+    border-style: solid;
+    border-width: 3px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 200px;
 }
+
+img {
+    border-style: dashed;
+    border-width: 3px;
+    height: 10em;
+    width: 10em;
+}
+
+#monster img {
+    float: right;
+}
+
+#monster .desc {
+    padding-right: 180px;
+}
+
+#monster .desc h1 {
+    float: right;
+}
+
+#monster .desc p {
+    float: right;
+}
+
+#monster .desc #health p {
+    float: right;
+}
+
+#trainer img {
+    float: left;
+}
+
+#trainer .desc {
+    padding-left: 180px;
+}
+
+#trainer .desc h1 {
+    float: left;
+}
+#trainer .desc p {
+    float: left;
+}
+
+
+
+
+
+// #trainer img {
+//     float: left;
+// }
+
+// #trainer h1{
+//     float: left;
+// }
+
+// #trainer .container {
+//     float: left;
+// }
+
+
+
+// #monster {
+//     float: right;
+//     margin-top: 10px;
+// }
+
+
+// img {
+//     width:15vw;
+//     height:35vh;
+//     // max-width:100%;
+//     // height:auto;
+//     // max-height:100%;
+//  }
+
+
+
