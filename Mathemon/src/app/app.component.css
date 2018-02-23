@@ -1,9 +1,10 @@
-.navbar-brand a {
+.navbar-brand {
     font-family: 'Press Start 2P', cursive;
 }
 
 a {
     font-family: 'Electrolize', sans-serif;
-    color: white;
 }
+
+
 
