@@ -16,6 +16,7 @@ import { BattleGroundComponent } from './battle/battle-ground/battle-ground.comp
 import { MovesetBoxComponent } from './battle/moveset-box/moveset-box.component';
 import { MoveComponent } from './battle/move/move.component';
 import { BattleWindowComponent } from './battle/battle-window/battle-window.component';
+import { HealthBarComponent } from './battle/health-bar/health-bar.component';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     BattleGroundComponent,
     MovesetBoxComponent,
     MoveComponent,
-    BattleWindowComponent
+    BattleWindowComponent,
+    HealthBarComponent
   ],
   imports: [
     BrowserModule,
