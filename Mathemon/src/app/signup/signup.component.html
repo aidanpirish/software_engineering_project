@@ -9,27 +9,27 @@
         <!-- FIRST NAME -->
         <div class="form-group">
             <label for="first_name">First name</label>
-            <input type="text" class="form-control" id="first_name" placeholder="e.g. John">
+            <input type="text" class="form-control" id="first_name" placeholder="e.g. John" #firstName >
         </div>
             
         <!-- LAST NAME -->
         <div class="form-group">
             <label for="last_name">Last name</label>
-            <input type="text" class="form-control" id="last_name" placeholder="e.g. Smith">
+            <input type="text" class="form-control" id="last_name" placeholder="e.g. Smith" #lastName>
         </div>
 
         <!-- EMAIL -->
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="e.g. johnsmith@hotmail.com">
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="e.g. johnsmith@hotmail.com" #email>
         </div>
 
         <!-- PASSWORD -->
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
+            <input type="password" class="form-control" id="password" placeholder="Password" #password >
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="submitData()">Submit</button>
     </form>
 </div>
