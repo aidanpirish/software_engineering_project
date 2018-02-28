@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore,AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import { problem } from '../../interfaces/problem.interface';
 
 @Component({
   selector: 'app-battle-ground',
@@ -8,13 +10,12 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class BattleGroundComponent implements OnInit {
   
-  move1
-  move2
-  move3
-  move4
-  constructor(db: AngularFirestore) { }
 
+  constructor() {
+  }
+  
   ngOnInit() {
+
   }
 
 }

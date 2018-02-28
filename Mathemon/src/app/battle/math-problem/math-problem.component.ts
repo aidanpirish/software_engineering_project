@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-math-problem',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./math-problem.component.scss']
 })
 export class MathProblemComponent implements OnInit {
+
+  @Input() leftSide: number
+  @Input() rightSide: number
+  @Input() expression: number
 
   constructor() { }
 
