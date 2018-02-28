@@ -1,6 +1,9 @@
-
-#battleground {
+.battleground {
     background: gray;
-    height: 100vh;
-    width: 100vw;
+    flex:1 1 auto;
+    height:93vh;
+}
+
+app-moveset-box{
+    margin-top: 15px;
 }

@@ -4,7 +4,5 @@
         <span id="operator">{{problem.expression}} </span>
         <span id="num2">{{problem.right_side}}</span> =
         <input #solution type="number" placeholder="?" (keyup.enter)="checkAnswer(solution.value)"/>
-        <span *ngIf="isCorrect == 'true'">Correct!</span>
-        <span *ngIf="isCorrect == 'false'">Wrong!</span>
     </h1>
 </div>

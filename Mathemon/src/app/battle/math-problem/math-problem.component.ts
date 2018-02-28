@@ -1,18 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { problem } from '../../interfaces/problem.interface';
+import { BattleService } from '../battle.service';
 
 @Component({
   selector: 'app-math-problem',
   templateUrl: './math-problem.component.html',
-  styleUrls: ['./math-problem.component.scss']
+  styleUrls: ['./math-problem.component.scss'],
+  providers:[]
 })
 export class MathProblemComponent implements OnInit {
 
   @Input() problem: problem;
   solution:number;
-  isCorrect:string;
 
-  constructor() { }
+  constructor(private battleService: BattleService) { }
 
   ngOnInit() {
     this.findSolution();
@@ -35,13 +36,13 @@ export class MathProblemComponent implements OnInit {
   }
   
   checkAnswer(answer:number){
-    console.log(answer)
     if(answer == this.solution){
-      this.isCorrect = 'true';
+      this.battleService.setSolvedResult('Correct!');
     }
     else{
-      this.isCorrect = 'false';
+      this.battleService.setSolvedResult('Wrong!');
     }
+    
 
   }
 

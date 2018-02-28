@@ -9,8 +9,6 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent {
   title = 'Mathemon';
-  items:Observable<any>;
-  constructor(db: AngularFirestore){
-    this.items = db.collection('items').valueChanges();
+  constructor(){
   }
 }

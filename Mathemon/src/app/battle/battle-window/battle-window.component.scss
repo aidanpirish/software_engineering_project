@@ -8,6 +8,11 @@
 
 .container {
     padding-top: 20px;
+    flex:0 1 auto;
+    height: 55vh;
+}
+.container {
+    padding-top: 20px;
 }
 
 .jumbotron {
@@ -54,7 +59,7 @@ img {
 }
 
 #trainer {
-    margin-top: 220px;
+    margin-top: 150px;
 }
 
 #trainer img {

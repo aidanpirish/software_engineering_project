@@ -18,6 +18,7 @@ import { MoveComponent } from './battle/move/move.component';
 import { BattleWindowComponent } from './battle/battle-window/battle-window.component';
 import { HealthBarComponent } from './battle/health-bar/health-bar.component';
 import { MathProblemComponent } from './battle/math-problem/math-problem.component';
+import { BattleService } from './battle/battle.service';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -57,7 +58,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [],
+  providers: [BattleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
