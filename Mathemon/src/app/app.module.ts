@@ -17,6 +17,7 @@ import { MovesetBoxComponent } from './battle/moveset-box/moveset-box.component'
 import { MoveComponent } from './battle/move/move.component';
 import { BattleWindowComponent } from './battle/battle-window/battle-window.component';
 import { HealthBarComponent } from './battle/health-bar/health-bar.component';
+import { MathProblemComponent } from './battle/math-problem/math-problem.component';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     MovesetBoxComponent,
     MoveComponent,
     BattleWindowComponent,
-    HealthBarComponent
+    HealthBarComponent,
+    MathProblemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-battle-ground',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./battle-ground.component.scss']
 })
 export class BattleGroundComponent implements OnInit {
-
-  constructor() { }
+  
+  move1
+  move2
+  move3
+  move4
+  constructor(db: AngularFirestore) { }
 
   ngOnInit() {
   }
