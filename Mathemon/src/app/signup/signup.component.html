@@ -2,14 +2,14 @@
 
     <h1>Signup Here!</h1>
     
-    <form name="teacher_form" class="container" id="teacher_form">
+    <!-- <form name="teacher_form" class="container" id="teacher_form"> -->
         
         
         
         <!-- FIRST NAME -->
         <div class="form-group">
             <label for="first_name">First name</label>
-            <input type="text" class="form-control" id="first_name" placeholder="e.g. John" #firstName >
+            <input type="text" class="form-control" id="first_name" placeholder="e.g. John" [(ngModel)]="firstName" >
         </div>
             
         <!-- LAST NAME -->
@@ -31,5 +31,5 @@
         </div>
 
         <button type="submit" class="btn btn-primary" (click)="submitData()">Submit</button>
-    </form>
+    <!-- </form> -->
 </div>
