@@ -1,19 +1,19 @@
 <table class="table">
   <tr>
     <td>
-      <app-move [problem]="problem1" ></app-move>
+      <app-move [problemNumber]="1" (change)="isClicked($event)"></app-move>
     </td>
     <td>
-      <app-move [problem]="problem2"></app-move>
+      <app-move [problemNumber]="2" (change)="isClicked($event)"></app-move>
     </td>
   </tr>
   <tr>
     <td>
-      <app-move [problem]="problem3"></app-move>
+      <app-move [problemNumber]="3" (change)="isClicked($event)"></app-move>
     </td>
     <td>
-      <app-move [problem]="problem4"></app-move>
+      <app-move [problemNumber]="4" (change)="isClicked($event)"></app-move>
     </td>
   </tr>
 </table>
-<app-math-problem *ngIf="choseProblem"></app-math-problem>
+<app-math-problem *ngIf="choseProblem" [problem]="currentProblem"></app-math-problem>

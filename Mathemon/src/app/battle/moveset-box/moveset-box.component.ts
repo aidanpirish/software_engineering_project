@@ -34,7 +34,30 @@ export class MovesetBoxComponent implements AfterContentInit {
     this.problem4 = problems[3];
   }
 
-  showMove(problem){
-    this.currentProblem = problem; 
+  isClicked(problemNumber){
+    switch(problemNumber){
+      case 1: {
+        this.currentProblem = this.problem1;
+        this.choseProblem = true;
+        break;
+      }
+      case 2: {
+        this.currentProblem = this.problem2;
+        this.choseProblem = true;
+        break;
+      }
+      case 3: {
+        this.currentProblem = this.problem3;
+        this.choseProblem = true;
+        break;
+      }
+      case 4: {
+        this.currentProblem = this.problem4;
+        this.choseProblem = true;
+        break;
+      }
+      
+
+    }
   }
 }
