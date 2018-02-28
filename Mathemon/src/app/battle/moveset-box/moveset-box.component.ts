@@ -16,6 +16,7 @@ export class MovesetBoxComponent implements AfterContentInit {
   problem2:problem;
   problem3:problem;
   problem4:problem;
+  currentProblem:problem;
 
   constructor(private battleService: BattleService) { }
 
