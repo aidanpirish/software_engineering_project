@@ -1,9 +1,22 @@
+%h1-jumbo {
+    font-size: 30px;
+} 
+
+%p-jumbo {
+    font-size: 15px;
+}
+
+.container {
+    padding-top: 20px;
+}
+
 .jumbotron {
     border-style: solid;
     border-width: 3px;
     padding-top: 5px;
     padding-bottom: 5px;
     height: 200px;
+    width: 500px;
 }
 
 img {
@@ -11,6 +24,10 @@ img {
     border-width: 3px;
     height: 10em;
     width: 10em;
+}
+
+#monster {
+    float: right;
 }
 
 #monster img {
@@ -22,15 +39,22 @@ img {
 }
 
 #monster .desc h1 {
+    @extend %h1-jumbo;
     float: right;
 }
 
 #monster .desc p {
+    @extend %p-jumbo;
     float: right;
 }
 
 #monster .desc #health p {
     float: right;
+    
+}
+
+#trainer {
+    margin-top: 220px;
 }
 
 #trainer img {
@@ -42,10 +66,14 @@ img {
 }
 
 #trainer .desc h1 {
+    @extend %h1-jumbo;
     float: left;
 }
+
 #trainer .desc p {
+    @extend %p-jumbo;
     float: left;
+
 }
 
 
