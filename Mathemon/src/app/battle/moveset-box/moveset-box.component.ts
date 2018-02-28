@@ -11,6 +11,7 @@ import { Observable } from '@firebase/util';
 })
 export class MovesetBoxComponent implements AfterContentInit {
 
+  choseProblem:boolean = false;
   problems:problem[];
   problem1:problem;
   problem2:problem;
