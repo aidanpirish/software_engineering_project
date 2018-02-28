@@ -19,6 +19,7 @@ import { BattleWindowComponent } from './battle/battle-window/battle-window.comp
 import { HealthBarComponent } from './battle/health-bar/health-bar.component';
 import { MathProblemComponent } from './battle/math-problem/math-problem.component';
 import { BattleService } from './battle/battle.service';
+import { SignupService } from './signup/signup.service';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [BattleService],
+  providers: [BattleService, SignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
