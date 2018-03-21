@@ -15,11 +15,13 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    // this.loginService.login().subscribe( () => {
-    //   if(this.loginService.isLoggedIn){
-    //     let redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '/login'
-    //   }
-    // })
+    this.loginService.login().subscribe( () => {
+      console.log('clicked login');
+      if(this.loginService.isLoggedIn){
+        console.log('Login Worked');
+        let redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '/login'
+      }
+    })
   }
 
 }

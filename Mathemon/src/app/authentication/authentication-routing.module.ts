@@ -1,41 +1,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from '../home-page/home-page.component';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuard } from './auth-guard.service';
 import { BattleGroundComponent } from '../battle/battle-ground/battle-ground.component';
-import { SignupComponent } from './signup/signup.component';
 import { LoginService } from './login/login.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-const loginRoutes: Routes  = [
+const authRoutes: Routes  = [
   {
-    path:'login',
-    component:LoginComponent,
-    // canActivate:[AuthGuardService],
+    path:'home',
+    component:HomePageComponent,
+    canActivate:[AuthGuard],
     children:[
       {path: '',
+      canActivateChild:[AuthGuard],
       children: [
-        {path:'home', component:HomePageComponent},
         {path:'battleground',component:BattleGroundComponent}
         ]
       }
       ]
-  },
-  {
-    path:'signup',
-    component:SignupComponent,
   }
 ]
 
 
 @NgModule({
   imports: [
-    RouterModule.forChild(loginRoutes)
+    RouterModule.forChild(authRoutes)
+  ],
+  declarations:[
+    HomePageComponent
   ],
   exports: [
     RouterModule
   ],
   providers:[
+    AuthGuard,
     LoginService
   ]
 })
