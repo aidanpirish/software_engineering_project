@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { CommonModule } from '@angular/common';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './authentication/signup/signup.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BattleGroundComponent } from './battle/battle-ground/battle-ground.component';
@@ -21,8 +21,7 @@ import { AuthGuardService } from './authentication/auth-guard.service';
 import { AuthenticationRoutingModule } from './authentication/authentication-routing.module';
 
 const appRoutes: Routes = [
-  {path:'signup', component:SignupComponent},
-  { path: '', redirectTo: '/signup', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path:'**',component:PageNotFoundComponent}
 ];
 
