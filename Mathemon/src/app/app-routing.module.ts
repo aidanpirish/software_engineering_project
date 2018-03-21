@@ -5,7 +5,7 @@ import { SignupComponent } from './authentication/signup/signup.component';
 import { PageNotFoundComponent } from './authentication/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
-    {path:'login', component:LoginComponent},
+    // {path:'login', component:LoginComponent},
     {path:'signup', component:SignupComponent},
     {path:'', redirectTo:'/login', pathMatch: 'full' },
     {path:'**', component:PageNotFoundComponent}
@@ -16,11 +16,6 @@ const appRoutes: Routes = [
         RouterModule.forRoot(
             appRoutes
         )
-    ],
-    declarations:[
-        LoginComponent,
-        SignupComponent,
-        PageNotFoundComponent
     ],
     exports:[
         RouterModule

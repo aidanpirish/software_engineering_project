@@ -11,14 +11,14 @@ const authRoutes: Routes  = [
     path:'home',
     component:HomePageComponent,
     canActivate:[AuthGuard],
-    children:[
-      {path: '',
-      canActivateChild:[AuthGuard],
-      children: [
-        {path:'battleground',component:BattleGroundComponent}
-        ]
-      }
-      ]
+    // children:[
+    //   {path: '',
+    //   canActivateChild:[AuthGuard],
+    //   children: [
+    //     {path:'battleground',component:BattleGroundComponent}
+    //     ]
+    //   }
+    //   ]
   }
 ]
 
@@ -34,8 +34,6 @@ const authRoutes: Routes  = [
     RouterModule
   ],
   providers:[
-    AuthGuard,
-    LoginService
   ]
 })
 export class AuthenticationRoutingModule { }

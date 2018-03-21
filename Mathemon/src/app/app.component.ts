@@ -11,8 +11,7 @@ import { LoginService } from './authentication/login/login.service';
 export class AppComponent {
   title = 'Mathemon';
   items:Observable<any>;
-  constructor(db: AngularFirestore, loginService: LoginService){
-    let isLoggedIn = loginService.isLoggedIn;
+  constructor(db: AngularFirestore){
     this.items = db.collection('items').valueChanges();
   }
 }

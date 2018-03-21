@@ -4,18 +4,13 @@ import { Observable } from '@firebase/util';
 import { LoginService } from './login/login.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanActivateChild{
-
-  constructor(private loginService: LoginService, private router: Router) { }
+export class AuthGuard implements CanActivate {
+  constructor(private loginService: LoginService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
 
     return this.checkLogin(url);
-  }
-
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.canActivate(route, state);
   }
 
   checkLogin(url: string): boolean {
@@ -28,5 +23,4 @@ export class AuthGuard implements CanActivate, CanActivateChild{
     this.router.navigate(['/login']);
     return false;
   }
-
 }
