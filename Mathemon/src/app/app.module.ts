@@ -8,20 +8,20 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { HomePageComponent } from './home-page/home-page.component';
-import { BattleGroundComponent } from './battle/battle-ground/battle-ground.component';
-import { MovesetBoxComponent } from './battle/moveset-box/moveset-box.component';
-import { MoveComponent } from './battle/move/move.component';
-import { BattleWindowComponent } from './battle/battle-window/battle-window.component';
-import { HealthBarComponent } from './battle/health-bar/health-bar.component';
-import { AuthGuard } from './authentication/auth-guard.service';
-import { AuthenticationRoutingModule } from './authentication/authentication-routing.module';
+import { HomePageComponent } from './authenticated-pages/home-page/home-page.component';
+import { BattleGroundComponent } from './authenticated-pages/battle/battle-ground/battle-ground.component';
+import { MovesetBoxComponent } from './authenticated-pages/battle/moveset-box/moveset-box.component';
+import { MoveComponent } from './authenticated-pages/battle/move/move.component';
+import { BattleWindowComponent } from './authenticated-pages/battle/battle-window/battle-window.component';
+import { HealthBarComponent } from './authenticated-pages/battle/health-bar/health-bar.component';
+import { AuthGuard } from './authenticated-pages/auth-guard.service';
+import { AuthenticationRoutingModule } from './authenticated-pages/authentication-routing.module';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './authentication/login/login.component';
-import { LoginRoutingModule } from './authentication/login/login-routing.module';
-import { SignupComponent } from './authentication/signup/signup.component';
-import { PageNotFoundComponent } from './authentication/page-not-found/page-not-found.component';
-import { LoginService } from './authentication/login/login.service';
+import { LoginComponent } from './login/login.component';
+import { LoginRoutingModule } from './login/login-routing.module';
+import { SignupComponent } from './signup/signup.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginService } from './login/login.service';
 
 
 
@@ -45,8 +45,8 @@ import { LoginService } from './authentication/login/login.service';
     AngularFireStorageModule,
     AngularFirestoreModule,
     LoginRoutingModule,
-    AppRoutingModule,
-    AuthenticationRoutingModule
+    AuthenticationRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

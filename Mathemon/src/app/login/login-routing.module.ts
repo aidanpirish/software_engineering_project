@@ -2,7 +2,7 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent }       from './login.component';
 import { LoginService } from './login.service';
-import { AuthGuard } from '../auth-guard.service';
+import { AuthGuard } from '../authenticated-pages/auth-guard.service';
  
 const loginRoutes: Routes = [
   { path: 'login', component: LoginComponent }
@@ -16,8 +16,8 @@ const loginRoutes: Routes = [
     RouterModule
   ],
   providers: [
-    LoginService,
-    AuthGuard
+    AuthGuard,
+    LoginService
   ]
 })
 export class LoginRoutingModule {}
