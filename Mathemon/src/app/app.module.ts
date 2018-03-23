@@ -22,6 +22,7 @@ import { MathProblemComponent } from './battle/math-problem/math-problem.compone
 import { BattleService } from './battle/battle.service';
 import { SignupService } from './signup/signup.service';
 import { ParticipantComponent } from './battle/participant/participant.component';
+import { ParticipantService } from './battle/participant/participant.service';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -62,7 +63,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [BattleService, SignupService],
+  providers: [BattleService, SignupService, ParticipantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

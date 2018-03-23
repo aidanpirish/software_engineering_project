@@ -8,9 +8,7 @@ import { ParticipantService } from './participant.service';
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
-  styleUrls: ['./participant.component.scss'],
-
-  providers:[ParticipantService]
+  styleUrls: ['./participant.component.scss']
 })
 export class ParticipantComponent {
   @Input()

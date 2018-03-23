@@ -13,19 +13,34 @@ export class ParticipantService {
 
   monsterCollection:AngularFirestoreCollection<participant>;
   omonsters:Observable<participant[]>;
+  monsters:participant[];
   monster: Subject<participant> = new Subject<participant>();
 
   userCollection:AngularFirestoreCollection<participant>;
   ousers:Observable<participant[]>;
-  users: Subject<participant> = new Subject<participant>();
+  users:participant[];
+  user: Subject<participant> = new Subject<participant>();
 
   
 
-  constructor(private db: AngularFirestore) {    
+  constructor(private db: AngularFirestore) {
+    this.getMonsterCollection();
+    this.getUserCollection();    
   }
 
+
+  /*
+  *
+  * User and Monster collection run when the app is created, so just call on
+  * set monster and set user to specify which one you want 
+  * 
+  * */
   getUserCollection(){
-    //set up for user collection
+    this.userCollection =  this.db.collection('Users');
+    this.ousers =  this.monsterCollection.valueChanges();
+    this.ousers.subscribe(users => {
+      this.users = users;
+    });
   }
 
 
@@ -33,13 +48,18 @@ export class ParticipantService {
     this.monsterCollection =  this.db.collection('Monsters');
     this.omonsters =  this.monsterCollection.valueChanges();
     this.omonsters.subscribe(monsters => {
-      this.setMonster(monsters,this.id);
-      console.log(monsters)
+      this.monsters = monsters;
     });
   }
 
-  setMonster(monsters:participant[], id:number){
-    this.monster.next(monsters[0]);
+  setMonster(id:number){
+    //probably needs to be tweaked but can be called anywhere participant service has been injected to the constructor
+    //DO NOT PROVIDE THE SERVICE ANYWHERE ELSE BESIDES APP-MODULE
+    this.monster.next(this.monsters[0]);
+  }
+
+  setUser(id:number){
+    //logic to find user
   }
 
 
