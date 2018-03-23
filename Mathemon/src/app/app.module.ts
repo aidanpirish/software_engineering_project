@@ -21,6 +21,7 @@ import { HealthBarComponent } from './battle/health-bar/health-bar.component';
 import { MathProblemComponent } from './battle/math-problem/math-problem.component';
 import { BattleService } from './battle/battle.service';
 import { SignupService } from './signup/signup.service';
+import { ParticipantComponent } from './battle/participant/participant.component';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     MoveComponent,
     BattleWindowComponent,
     HealthBarComponent,
-    MathProblemComponent
+    MathProblemComponent,
+    ParticipantComponent
   ],
   imports: [
     BrowserModule,
