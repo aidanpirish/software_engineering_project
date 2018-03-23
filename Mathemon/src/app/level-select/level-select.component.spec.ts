@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BattleWindowComponent } from './battle-window.component';
+import { LevelSelectComponent } from './level-select.component';
 
-describe('BattleWindowComponent', () => {
-  let component: BattleWindowComponent;
-  let fixture: ComponentFixture<BattleWindowComponent>;
+describe('LevelSelectComponent', () => {
+  let component: LevelSelectComponent;
+  let fixture: ComponentFixture<LevelSelectComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BattleWindowComponent ]
+      declarations: [ LevelSelectComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BattleWindowComponent);
+    fixture = TestBed.createComponent(LevelSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,5 +23,3 @@ describe('BattleWindowComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-

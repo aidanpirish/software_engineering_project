@@ -21,12 +21,14 @@ import { HealthBarComponent } from './battle/health-bar/health-bar.component';
 import { MathProblemComponent } from './battle/math-problem/math-problem.component';
 import { BattleService } from './battle/battle.service';
 import { SignupService } from './signup/signup.service';
+import { LevelSelectComponent } from './level-select/level-select.component';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
   {path:'battleground',component:BattleGroundComponent},
+  {path:'level', component:LevelSelectComponent},
   { path: '',
   redirectTo: '/home',
   pathMatch: 'full'
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     MoveComponent,
     BattleWindowComponent,
     HealthBarComponent,
-    MathProblemComponent
+    MathProblemComponent,
+    LevelSelectComponent
   ],
   imports: [
     BrowserModule,
