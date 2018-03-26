@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore,AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { problem } from '../interfaces/problem.interface';
+import { problem } from '../../interfaces/problem.interface';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()

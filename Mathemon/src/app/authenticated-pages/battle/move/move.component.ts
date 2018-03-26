@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { problem } from '../../interfaces/problem.interface';
+import { problem } from '../../../interfaces/problem.interface';
 
 @Component({
   selector: 'app-move',

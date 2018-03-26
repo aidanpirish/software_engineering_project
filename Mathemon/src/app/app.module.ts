@@ -22,15 +22,11 @@ import { LoginComponent } from './login/login.component';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BattleGroundComponent } from './battle/battle-ground/battle-ground.component';
-import { MovesetBoxComponent } from './battle/moveset-box/moveset-box.component';
-import { MoveComponent } from './battle/move/move.component';
-import { BattleWindowComponent } from './battle/battle-window/battle-window.component';
-import { HealthBarComponent } from './battle/health-bar/health-bar.component';
-import { MathProblemComponent } from './battle/math-problem/math-problem.component';
-import { BattleService } from './battle/battle.service';
+import { MathProblemComponent } from './authenticated-pages/battle/math-problem/math-problem.component';
+import { BattleService } from './authenticated-pages/battle/battle.service';
 import { SignupService } from './signup/signup.service';
-import { LevelSelectComponent } from './level-select/level-select.component';
+import { LevelSelectComponent } from './authenticated-pages/level-select/level-select.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
@@ -61,6 +57,7 @@ const appRoutes: Routes = [
     LevelSelectComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
