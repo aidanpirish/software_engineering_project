@@ -2,6 +2,14 @@
     font-family: 'Press Start 2P', cursive;
 }
 
+nav{
+    flex:0 1 auto;
+}
+
+.content-window{
+    flex:1 1 auto;
+}
+
 a {
     font-family: 'Electrolize', sans-serif;
     color: white;

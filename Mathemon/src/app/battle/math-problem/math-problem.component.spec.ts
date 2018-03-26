@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BattleWindowComponent } from './battle-window.component';
+import { MathProblemComponent } from './math-problem.component';
 
-describe('BattleWindowComponent', () => {
-  let component: BattleWindowComponent;
-  let fixture: ComponentFixture<BattleWindowComponent>;
+describe('MathProblemComponent', () => {
+  let component: MathProblemComponent;
+  let fixture: ComponentFixture<MathProblemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BattleWindowComponent ]
+      declarations: [ MathProblemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BattleWindowComponent);
+    fixture = TestBed.createComponent(MathProblemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,5 +23,3 @@ describe('BattleWindowComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-

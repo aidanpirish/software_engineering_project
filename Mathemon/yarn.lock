@@ -237,6 +237,10 @@
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.6.tgz#a4b81ca8cdeb1acbc7923289a4a514f61b59db86"
 
+"@ng-bootstrap/ng-bootstrap@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-1.0.0.tgz#8f2ae70db2fe1dcbf5e0acb49dc2b1bbba2be8d2"
+
 "@ngtools/json-schema@1.1.0", "@ngtools/json-schema@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@ngtools/json-schema/-/json-schema-1.1.0.tgz#c3a0c544d62392acc2813a42c8a0dc6f58f86922"
@@ -1714,6 +1718,10 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
+css-grid@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/css-grid/-/css-grid-1.0.7.tgz#99f3c5d8e2284692d586ebb4aa9aa2b94003734f"
+
 css-loader@^0.28.1:
   version "0.28.9"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.9.tgz#68064b85f4e271d7ce4c48a58300928e535d1c95"
@@ -2687,6 +2695,10 @@ firebase@^4.9.1:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
+
+flexbox@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/flexbox/-/flexbox-0.0.3.tgz#b4d03395734a19dba566ba02752c95b603c44cf7"
 
 flush-write-stream@^1.0.0:
   version "1.0.2"

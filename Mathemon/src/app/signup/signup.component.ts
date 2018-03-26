@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { SignupService } from './signup.service';
+import { SignUp } from './signup.definition';
 
 @Component({
   selector: 'app-signup',
@@ -6,13 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  click() {
-    alert("clicked");
-  }
-  constructor() { }
 
+  constructor(private signupService:SignupService) { 
+  }
+  
   ngOnInit() {
   }
   
+
+  submitData(newTeacher:SignUp):void {
+    this.signupService.addNewTeacher(newTeacher);
+  }
 
 }

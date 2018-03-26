@@ -1,18 +1,21 @@
-<table class="table">
-  <tr>
-    <td>
-      <app-move></app-move>
-    </td>
-    <td>
-      <app-move></app-move>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <app-move></app-move>
-    </td>
-    <td>
-      <app-move></app-move>
-    </td>
-  </tr>
-</table>
+<div class="contianer">
+ <table class="table">
+    <tr>
+      <td>
+        <app-move [problemNumber]="1" (change)="isClicked($event)"></app-move>
+      </td>
+      <td>
+        <app-move [problemNumber]="2" (change)="isClicked($event)"></app-move>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <app-move [problemNumber]="3" (change)="isClicked($event)"></app-move>
+      </td>
+      <td>
+        <app-move [problemNumber]="4" (change)="isClicked($event)"></app-move>
+      </td>
+    </tr>
+  </table>
+  <app-math-problem *ngIf="choseProblem" [problem]="currentProblem"></app-math-problem>
+</div>

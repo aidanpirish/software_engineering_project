@@ -1,4 +1,6 @@
-<div id="battleground">
+<div class="battleground">
   <app-battle-window></app-battle-window>
-  <app-moveset-box></app-moveset-box>
+  <app-moveset-box *ngIf="solutionStatus == null"></app-moveset-box>
+  <span *ngIf="solutionStatus">{{solutionStatus}}</span>
+  <button *ngIf="solutionStatus" (click)="resetSolutionStatus()">Try Again?</button>
 </div>

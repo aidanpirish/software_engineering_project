@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { problem } from '../../interfaces/problem.interface';
 
 @Component({
   selector: 'app-move',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoveComponent implements OnInit {
 
+  @Input() problemNumber: number;
+  @Output() change = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
+  emitClick(){
+    this.change.emit(this.problemNumber)
+  }
 }

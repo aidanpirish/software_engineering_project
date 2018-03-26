@@ -1,0 +1,26 @@
+.container {
+    border: 2px solid;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(5px, auto);
+    grid-template-areas:
+        "df df nm nm nm ty ty"
+        "df df nm nm nm ty ty"
+        "df df nm nm nm ty ty";
+    grid-gap: 20px;
+}
+
+#difficulty {
+    grid-area: df;
+    align-self: center;
+}
+
+#name {
+    grid-area: nm;
+    align-self: center;
+}
+
+#type {
+    grid-area: ty;
+    align-self: center;
+}

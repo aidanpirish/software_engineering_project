@@ -1,3 +1,95 @@
-.custom-window{
-    min-height: 400px;
+body {
+    height: 100vh;
 }
+
+.container {
+    padding: 20px;
+    height: 55vh;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-rows: 150px 150px;
+    width: 100%;
+    background: url("../../../assets/battle-window-landscape.jpg");
+    background-size: cover; /* or contain depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.battle-box img {
+    width: 150px;
+    height: auto;
+}
+
+.battle-box h1 {
+    font-size: 30px;
+}
+
+#monster {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 70px 55px;
+    height: 140px;
+    //border: 5px solid black;
+    grid-column: 2;
+    background-color: rgba(190, 190, 190, 0.8);
+    img {
+        order: 2;
+        grid-column: 3;
+        grid-row: span 2;
+        align-self: center;
+        padding-right: 20px;
+    }
+    
+}
+
+#monster .desc {
+    order: 1;
+    padding-left: 30px;
+    padding-top: 20px;
+    display: grid;
+    grid-template-rows: 2;
+    .display-4 {
+        grid-row: 1;
+    }
+    .health {
+        grid-row: 2;
+    }
+}
+
+#trainer {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 70px 55px;
+    height: 140px;
+    //border: 5px solid black;
+    grid-column: 1;
+    background-color: rgba(190, 190, 190, 0.8);
+    img {
+        order: 1;
+        grid-column: 1;
+        grid-row: span 2;
+        align-self: center;
+        padding-right: 20px;
+    }
+}
+
+#trainer .desc {
+    order: 2;
+    padding-right: 30px;
+    padding-top: 20px;
+    display: grid;
+    grid-template-rows: 2;
+    .display-4 {
+        grid-row: 1;
+    }
+    .health {
+        grid-row: 2;
+    }
+}
+
+
+
+

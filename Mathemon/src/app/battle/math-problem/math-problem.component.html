@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>
+        <span id="num1">{{problem.left_side}}</span>
+        <span id="operator">{{problem.expression}} </span>
+        <span id="num2">{{problem.right_side}}</span> =
+        <input #solution type="number" placeholder="?" (keyup.enter)="checkAnswer(solution.value)"/>
+    </h1>
+</div>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { AngularFirestore,AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
@@ -8,6 +9,8 @@ import { Router } from '@angular/router';
 @Injectable()
 export class LoginService {
 
+  @Input()
+  user: User;
   constructor(private router:Router){
     
   }
@@ -19,7 +22,12 @@ export class LoginService {
   redirectUrl: string;
 
   login(): Observable<boolean> {
+    this.checkTeacherLogin();
     return Observable.of(true).do(val => this.isLoggedIn = true);
+  }
+
+  private checkTeacherLogin(){
+    
   }
 
   logout(): void {
