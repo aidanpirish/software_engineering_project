@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { problem } from '../../interfaces/problem.interface';
 import { BattleService } from '../battle.service';
 import { ActivatedRoute } from '@angular/router';
+import { ParticipantService } from '../participant/participant.service';
 
 @Component({
   selector: 'app-battle-ground',
@@ -12,15 +13,12 @@ import { ActivatedRoute } from '@angular/router';
   providers:[BattleService]
 })
 export class BattleGroundComponent implements OnInit {
-  
-  problemNumber:any;
 
   solutionStatus:string = null;
 
-  constructor(private battleService: BattleService, private route: ActivatedRoute) {
-    this.route.params.subscribe(params => {
-      this.problemNumber = params.problemNumber;
-    });
+  constructor(
+    private battleService: BattleService
+  ) {
     this.battleService.solvedResult.subscribe(result => this.solutionStatus = result);
   }
   

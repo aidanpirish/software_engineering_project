@@ -13,6 +13,7 @@ import { ParticipantService } from './participant.service';
 export class ParticipantComponent {
   @Input()
   id:number;
+  @Input()
   participant:participant =
     {
       hp:4,

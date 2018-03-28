@@ -25,7 +25,6 @@ export class ParticipantService {
 
   constructor(private db: AngularFirestore) {
     this.getMonsterCollection();
-    this.getUserCollection();    
   }
 
 
@@ -35,14 +34,6 @@ export class ParticipantService {
   * set monster and set user to specify which one you want 
   * 
   * */
-  getUserCollection(){
-    this.userCollection =  this.db.collection('Users');
-    this.ousers =  this.monsterCollection.valueChanges();
-    this.ousers.subscribe(users => {
-      this.users = users;
-    });
-  }
-
 
   getMonsterCollection() {
     this.monsterCollection =  this.db.collection('Monsters');
@@ -55,11 +46,7 @@ export class ParticipantService {
   setMonster(id:number){
     //probably needs to be tweaked but can be called anywhere participant service has been injected to the constructor
     //DO NOT PROVIDE THE SERVICE ANYWHERE ELSE BESIDES APP-MODULE
-    this.monster.next(this.monsters[0]);
-  }
-
-  setUser(id:number){
-    //logic to find user
+    this.monster.next(this.monsters[id]);
   }
 
 
