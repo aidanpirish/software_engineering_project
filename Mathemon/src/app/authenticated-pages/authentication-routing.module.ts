@@ -22,7 +22,15 @@ const authRoutes: Routes  = [
     //   }
     //   ]
   },
-  {path:'battleground',component:BattleGroundComponent},
+  {
+    path:'battleground',component:BattleGroundComponent,
+    children:[
+      {
+        path:':problemNumber',
+        component:BattleGroundComponent
+      }
+    ]
+  },
   {path:'level-select',component:LevelSelectComponent}
 
 ]

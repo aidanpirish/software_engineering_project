@@ -27,29 +27,8 @@ import { BattleService } from './authenticated-pages/battle/battle.service';
 import { SignupService } from './signup/signup.service';
 import { LevelSelectComponent } from './authenticated-pages/level-select/level-select.component';
 import { FormsModule } from '@angular/forms';
-import { ParticipantComponent } from './battle/participant/participant.component';
-import { ParticipantService } from './battle/participant/participant.service';
-
-const appRoutes: Routes = [
-  {path:'home', component:HomePageComponent},
-  {path:'login', component:LoginComponent},
-  {path:'signup', component:SignupComponent},
-  {
-    path:'battleground',
-    children:[
-      {
-        path:':problemNumber',
-        component:BattleGroundComponent
-      }
-    ]
-    },
-  {path:'level', component:LevelSelectComponent},
-  { path: '',
-  redirectTo: '/home',
-  pathMatch: 'full'
-  },
-  {path:'**',component:PageNotFoundComponent}
-];
+import { ParticipantComponent } from './authenticated-pages/battle/participant/participant.component';
+import { ParticipantService } from './authenticated-pages/battle/participant/participant.service';
 
 
 @NgModule({
