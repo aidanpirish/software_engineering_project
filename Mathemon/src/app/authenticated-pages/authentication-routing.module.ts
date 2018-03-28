@@ -6,6 +6,7 @@ import { BattleGroundComponent } from './battle/battle-ground/battle-ground.comp
 import { LoginService } from '../login/login.service';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { LevelSelectComponent } from './level-select/level-select.component';
+import { CommonModule } from '@angular/common';
 
 const authRoutes: Routes  = [
   {
@@ -39,7 +40,8 @@ const authRoutes: Routes  = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(authRoutes)
+    RouterModule.forChild(authRoutes),
+    CommonModule
   ],
   declarations:[
     HomePageComponent
