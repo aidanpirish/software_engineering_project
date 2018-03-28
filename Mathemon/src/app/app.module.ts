@@ -29,7 +29,15 @@ const appRoutes: Routes = [
   {path:'home', component:HomePageComponent},
   {path:'login', component:LoginComponent},
   {path:'signup', component:SignupComponent},
-  {path:'battleground',component:BattleGroundComponent},
+  {
+    path:'battleground',
+    children:[
+      {
+        path:':problemNumber',
+        component:BattleGroundComponent
+      }
+    ]
+    },
   {path:'level', component:LevelSelectComponent},
   { path: '',
   redirectTo: '/home',
