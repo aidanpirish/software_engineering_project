@@ -3,7 +3,6 @@ import { participant } from '../../interfaces/participantINT.interface';
 import { BattleService } from '../battle.service';
 import { Reference } from '@firebase/storage-types';
 import { Url } from 'url';
-import { ParticipantService } from './participant.service';
 
 @Component({
   selector: 'app-participant',
@@ -22,10 +21,7 @@ export class ParticipantComponent {
 
     };
 
-  constructor(private participantService: ParticipantService) {
-      this.participantService.monster.subscribe(monster => {             
-        this.participant = monster
-      });
+  constructor() {
 
    }
 
