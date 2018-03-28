@@ -2,6 +2,7 @@ export interface User {
     //username is email for teachers and something random for students
     username: string;
     password: string;
+    type:string;
 }
 
 export interface Teacher extends User{

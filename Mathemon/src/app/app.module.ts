@@ -18,7 +18,7 @@ import { HealthBarComponent } from './authenticated-pages/battle/health-bar/heal
 import { AuthGuard } from './authenticated-pages/auth-guard.service';
 import { AuthenticationRoutingModule } from './authenticated-pages/authentication-routing.module';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/teacher-login/login.component';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { SignupComponent } from './signup/signup.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -30,12 +30,14 @@ import { FormsModule } from '@angular/forms';
 import { ParticipantComponent } from './authenticated-pages/battle/participant/participant.component';
 import { ParticipantService } from './authenticated-pages/battle/participant/participant.service';
 import { GlobalService } from './global/global.service';
+import { StudentLoginComponent } from './login/student-login/student-login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    StudentLoginComponent,
     SignupComponent,
     PageNotFoundComponent,
     BattleGroundComponent,

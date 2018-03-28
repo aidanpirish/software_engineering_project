@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
-import { LoginService } from './login.service';
-import { User } from '../interfaces/user.interface';
-import { debug } from 'util';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-student-login',
+  templateUrl: './student-login.component.html',
+  styleUrls: ['./student-login.component.scss']
 })
-export class LoginComponent{
+export class StudentLoginComponent{
 
+  
   constructor(private loginService: LoginService, public router: Router) { }
 
   _email:string ;
@@ -35,7 +34,9 @@ export class LoginComponent{
     this.loginService.login(
       //create a User object to pass to the method
       {username:this.email, 
-       password:this.password}
+       password:this.password,
+       type:'student'
+    }
     ).subscribe( () => {
       if(this.loginService.isLoggedIn){
         let redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '/home'
