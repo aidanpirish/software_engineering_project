@@ -3,6 +3,8 @@ import { AngularFirestore,AngularFirestoreDocument, AngularFirestoreCollection }
 import { Observable } from 'rxjs/Observable';
 import { problem } from '../../../interfaces/problem.interface';
 import { BattleService } from '../battle.service';
+import { ActivatedRoute } from '@angular/router';
+import { ParticipantService } from '../participant/participant.service';
 
 @Component({
   selector: 'app-battle-ground',
@@ -11,10 +13,12 @@ import { BattleService } from '../battle.service';
   providers:[BattleService]
 })
 export class BattleGroundComponent implements OnInit {
-  
+
   solutionStatus:string = null;
 
-  constructor(private battleService: BattleService) {
+  constructor(
+    private battleService: BattleService
+  ) {
     this.battleService.solvedResult.subscribe(result => this.solutionStatus = result);
   }
   
