@@ -5,17 +5,22 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import { Router } from '@angular/router';
-import { User } from '../interfaces/user.interface';
+import { User, Teacher } from '../interfaces/user.interface';
+import { GlobalService } from '../global/global.service';
 
 
 @Injectable()
 export class LoginService {
 
-  teachersCollection:AngularFirestoreCollection<User>;
-  teachersObservable: Observable<User[]>;
-  teachers: User[];
+  teachersCollection:AngularFirestoreCollection<Teacher>;
+  teachersObservable: Observable<Teacher[]>;
+  teachers: Teacher[];
 
-  constructor(private router:Router, private db: AngularFirestore){
+  constructor(
+    private router:Router, 
+    private db: AngularFirestore,
+    private global: GlobalService
+  ){
     this.teachersCollection = db.collection('Teachers');
     this.teachersObservable = this.teachersCollection.valueChanges();
     this.teachersObservable.subscribe(teachers => {
@@ -36,10 +41,10 @@ export class LoginService {
   private checkTeacherLogin(user:User){
     let result = false;
     for(let teacher of this.teachers){
-      if(teacher.email == user.email){
+      if(teacher.username == user.username){
         if(teacher.password == user.password){
-          console.log('user verified');
-          result = true;
+          this.global.currentUser.next(teacher);
+          return true;
         }
       }
     }
