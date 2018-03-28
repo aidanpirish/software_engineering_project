@@ -1,4 +1,4 @@
-<div ngClass="{isMirrored:picture on right, !isMirroed:picture on left}">
+<div ngClass="{picture on right: isMirrored, picture on left:!isMirrored}">
   <img [src]="participant.picture" alt="">
     <h1>{{participant.name}}</h1>
     <h1>{{participant.hp}}</h1>
