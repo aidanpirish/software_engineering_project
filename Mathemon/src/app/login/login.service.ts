@@ -44,7 +44,7 @@ export class LoginService {
       if(teacher.username == user.username){
         if(teacher.password == user.password){
           this.global.currentUser.next(teacher);
-          return true;
+            result = true;
         }
       }
     }

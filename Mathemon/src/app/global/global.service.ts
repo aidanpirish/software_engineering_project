@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
-import { User, Teacher } from '../interfaces/user.interface';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { User, Teacher, Student } from '../interfaces/user.interface';
 
 
 /**
@@ -12,19 +12,15 @@ import { User, Teacher } from '../interfaces/user.interface';
 @Injectable()
 export class GlobalService {
 
-  currentUser: Subject<User>;
-  isTeacher: Subject<boolean>;
-  isStudent: Subject<boolean>;
+  currentUser: BehaviorSubject<User | Teacher | Student> = new BehaviorSubject<User>(null);
+  isTeacher: BehaviorSubject<boolean>;
+  isStudent: BehaviorSubject<boolean>;
   
   constructor() { 
-    this.currentUser.subscribe(() => {
-      this.checkIsTeacherOrStudent();
-    })
+    // this.currentUser.subscribe(() => {
+    // })
   }
-  
-  checkIsTeacherOrStudent(): any {
-    if(this.currentUser instanceof Teacher)
-  }
+
 
 
 }

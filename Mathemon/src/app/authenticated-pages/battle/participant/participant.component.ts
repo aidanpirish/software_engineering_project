@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { participant } from '../../interfaces/participantINT.interface';
+import { participant } from '../../../interfaces/participantINT.interface';
 import { BattleService } from '../battle.service';
 import { Reference } from '@firebase/storage-types';
 import { Url } from 'url';
@@ -10,6 +10,10 @@ import { Url } from 'url';
   styleUrls: ['./participant.component.scss']
 })
 export class ParticipantComponent {
+
+  @Input()
+  isMirrored: boolean = false;
+
   @Input()
   id:number;
   @Input()

@@ -23,10 +23,11 @@ const authRoutes: Routes  = [
     //   ]
   },
   {
-    path:'battleground',component:BattleGroundComponent,
+    path:'battleground',
+    canActivate:[AuthGuard],
     children:[
       {
-        path:':problemNumber',
+        path:':id',
         component:BattleGroundComponent
       }
     ]

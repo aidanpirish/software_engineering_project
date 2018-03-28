@@ -1,8 +1,8 @@
 import { Injectable, Input } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { participant } from '../../interfaces/participantINT.interface';
+import { participant } from '../../../interfaces/participantINT.interface';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 @Injectable()
@@ -14,12 +14,12 @@ export class ParticipantService {
   monsterCollection:AngularFirestoreCollection<participant>;
   omonsters:Observable<participant[]>;
   monsters:participant[];
-  monster: Subject<participant> = new Subject<participant>();
+  monster: BehaviorSubject<participant> = new BehaviorSubject<participant>(null);
 
   userCollection:AngularFirestoreCollection<participant>;
   ousers:Observable<participant[]>;
   users:participant[];
-  user: Subject<participant> = new Subject<participant>();
+  user: BehaviorSubject<participant> = new BehaviorSubject<participant>(null);
 
   
 
@@ -46,6 +46,8 @@ export class ParticipantService {
   setMonster(id:number){
     //probably needs to be tweaked but can be called anywhere participant service has been injected to the constructor
     //DO NOT PROVIDE THE SERVICE ANYWHERE ELSE BESIDES APP-MODULE
+    console.log('Set monster');
+    console.log(this.monsters);
     this.monster.next(this.monsters[id]);
   }
 

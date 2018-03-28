@@ -29,6 +29,7 @@ import { LevelSelectComponent } from './authenticated-pages/level-select/level-s
 import { FormsModule } from '@angular/forms';
 import { ParticipantComponent } from './authenticated-pages/battle/participant/participant.component';
 import { ParticipantService } from './authenticated-pages/battle/participant/participant.service';
+import { GlobalService } from './global/global.service';
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { ParticipantService } from './authenticated-pages/battle/participant/par
     AuthenticationRoutingModule,
     AppRoutingModule
   ],
-  providers: [BattleService, SignupService, ParticipantService],
+  providers: [BattleService, SignupService, ParticipantService, GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

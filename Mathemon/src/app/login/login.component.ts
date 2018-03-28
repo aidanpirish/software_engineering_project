@@ -32,7 +32,6 @@ export class LoginComponent{
 
 
   login(){
-    console.log(this.email, this.password);
     this.loginService.login(
       //create a User object to pass to the method
       {username:this.email, 
