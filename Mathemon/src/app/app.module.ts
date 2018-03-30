@@ -25,6 +25,7 @@ import { ParticipantService } from './authenticated-pages/battle/participant/par
 import { GlobalService } from './global/global.service';
 import { StudentLoginComponent } from './login/student-login/student-login.component';
 import { BattleModule } from './authenticated-pages/battle/battle.module';
+import { StudentSignupComponent } from './authenticated-pages/student-signup/student-signup.component';
 
 
 @NgModule({
