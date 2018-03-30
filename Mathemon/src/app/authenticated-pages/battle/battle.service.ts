@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore,AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { problem } from '../interfaces/problem.interface';
-import { Subject } from 'rxjs/Subject';
+import { problem } from '../../interfaces/problem.interface';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class BattleService {
@@ -14,7 +14,7 @@ export class BattleService {
   problem3:problem;
   problem4:problem;
   solution:string;
-  solvedResult:Subject<string> = new Subject<string>();
+  solvedResult:BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   constructor(private db: AngularFirestore) { 
     this.problemCollection = this.db.collection('Questions');

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { LoginService } from './login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,22 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent {
   title = 'Mathemon';
-  constructor(){
+
+  items:Observable<any>;
+
+  constructor(
+    db: AngularFirestore,
+    private loginService:LoginService
+  ){
+    this.items = db.collection('items').valueChanges();
   }
+
+  get isLoggedIn(){
+    return this.loginService.isLoggedIn;
+  }
+
+  logout() {
+    this.loginService.logout();
+  }
+
 }

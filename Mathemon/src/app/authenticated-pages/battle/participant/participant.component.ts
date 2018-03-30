@@ -1,9 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { participant } from '../../interfaces/participantINT.interface';
+import { participant } from '../../../interfaces/participantINT.interface';
 import { BattleService } from '../battle.service';
 import { Reference } from '@firebase/storage-types';
 import { Url } from 'url';
-import { ParticipantService } from './participant.service';
 
 @Component({
   selector: 'app-participant',
@@ -11,8 +10,13 @@ import { ParticipantService } from './participant.service';
   styleUrls: ['./participant.component.scss']
 })
 export class ParticipantComponent {
+
+  @Input()
+  isMirrored: boolean = false;
+
   @Input()
   id:number;
+  @Input()
   participant:participant =
     {
       hp:4,
@@ -21,10 +25,7 @@ export class ParticipantComponent {
 
     };
 
-  constructor(private participantService: ParticipantService) {
-      this.participantService.monster.subscribe(monster => {             
-        this.participant = monster
-      });
+  constructor() {
 
    }
 
