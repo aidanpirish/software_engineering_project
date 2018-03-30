@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
 
   submitData(newTeacher:SignUp):void {
     this.signupService.addNewTeacher(newTeacher);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/student-login']);
   }
 
 }

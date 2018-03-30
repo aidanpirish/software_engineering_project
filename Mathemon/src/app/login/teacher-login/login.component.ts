@@ -13,6 +13,8 @@ export class LoginComponent{
 
   constructor(private loginService: LoginService, public router: Router) { }
 
+  hasError:boolean = false;
+  error:string = '';
   _email:string ;
   _password:string;
 
@@ -32,6 +34,8 @@ export class LoginComponent{
 
 
   login(){
+    this.hasError = false;
+    this.error = '';
     this.loginService.login(
       //create a User object to pass to the method
       {username:this.email, 
@@ -40,9 +44,11 @@ export class LoginComponent{
       }
     ).subscribe( () => {
       if(this.loginService.isLoggedIn){
-        let redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '/home'
-
-        this.router.navigate([redirect]);
+        this.router.navigate(['/home']);
+      }
+      else{
+        this.hasError = true;
+        this.error = 'Invalid Username or Password';
       }
     })
   }
