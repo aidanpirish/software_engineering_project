@@ -12,14 +12,17 @@ import { GlobalService } from '../global/global.service';
 @Injectable()
 export class LoginService {
 
+  //variables for if the user logging in is a teacher
   teachersCollection:AngularFirestoreCollection<Teacher>;
   teachersObservable: Observable<Teacher[]>;
   teachers: Teacher[];
 
+  //variables for if the user logging in is a student
   studentsCollection:AngularFirestoreCollection<Student>;
   studentsObservable: Observable<Student[]>;
   students: Student[];
 
+  //go get teacher and student data from the database
   constructor(
     private router:Router, 
     private db: AngularFirestore,
@@ -37,12 +40,12 @@ export class LoginService {
     });
   }
 
-  //TODO: Make isLoggedIn a behaviour subject so it can emit it's value when needed
   isLoggedIn: boolean = false;
 
   // store the URL so we can redirect after logging in
   redirectUrl: string;
 
+  //attempt to login the user
   login(user:User): Observable<boolean> {
     if(user.type == 'teacher'){
       return Observable.of(this.checkTeacherLogin(user)).do(value => this.isLoggedIn = value);
@@ -52,6 +55,7 @@ export class LoginService {
     }
   }
 
+  //user was a teahcer, check teacher accounts to see if valid
   private checkTeacherLogin(user:User){
     let result = false;
     for(let teacher of this.teachers){
@@ -66,6 +70,7 @@ export class LoginService {
     return result;
   }
 
+  //user was a student, check student accounts to see if valid
   private checkStudentLogin(user:User){
     let result = false;
     for(let student of this.students){
@@ -80,6 +85,7 @@ export class LoginService {
     return result;
   }
 
+  //user wants to logout, proceed to doing so
   logout(): void {
     this.isLoggedIn = false;
     this.redirectUrl = '/student-login';

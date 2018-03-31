@@ -11,6 +11,7 @@ import { StudentSignupComponent } from './student-signup/student-signup.componen
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
 
+//these routes are for all pages that need a user to be logged in in order to access
 const authRoutes: Routes  = [
   {
     path:'home',

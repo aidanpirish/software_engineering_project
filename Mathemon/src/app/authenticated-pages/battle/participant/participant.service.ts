@@ -39,7 +39,6 @@ export class ParticipantService {
     this.monsterCollection =  this.db.collection('Monsters');
     this.omonsters =  this.monsterCollection.valueChanges();
     this.omonsters.subscribe(monsters => {
-      console.log(monsters);
       this.monsters = monsters;
     });
   }
@@ -47,9 +46,6 @@ export class ParticipantService {
   setMonster(id:number){
     //probably needs to be tweaked but can be called anywhere participant service has been injected to the constructor
     //DO NOT PROVIDE THE SERVICE ANYWHERE ELSE BESIDES APP-MODULE
-    console.log('Set monster');
-    console.log(this.monsters);
-    console.log(id);
     this.monster.next(this.monsters[id]);
   }
 

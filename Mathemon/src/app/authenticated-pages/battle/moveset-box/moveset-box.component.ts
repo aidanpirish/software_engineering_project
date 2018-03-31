@@ -1,7 +1,5 @@
 import { Component, Input, Output, OnChanges } from '@angular/core';
 import { problem } from '../../../interfaces/problem.interface';
-import { BattleService } from '../battle.service';
-import { Observable } from '@firebase/util';
 
 @Component({
   selector: 'app-moveset-box',
@@ -12,36 +10,35 @@ import { Observable } from '@firebase/util';
 export class MovesetBoxComponent {
 
   choseProblem:boolean = false;
-  currentProblem:problem;
+  isAttackMove:boolean = true;
+  currentProblem:number;
 
-  constructor(private battleService: BattleService) { 
+  constructor() { 
   }
 
 
   isClicked(problemNumber){
     switch(problemNumber){
       case 1: {
-        this.currentProblem = this.battleService.problem1;
+        this.currentProblem = 1;
         this.choseProblem = true;
         break;
       }
       case 2: {
-        this.currentProblem = this.battleService.problem2;
+        this.currentProblem = 2;
         this.choseProblem = true;
         break;
       }
       case 3: {
-        this.currentProblem = this.battleService.problem3;
+        this.currentProblem = 3;
         this.choseProblem = true;
         break;
       }
       case 4: {
-        this.currentProblem = this.battleService.problem4;
+        this.currentProblem = 4;
         this.choseProblem = true;
         break;
       }
-      
-
     }
   }
 }

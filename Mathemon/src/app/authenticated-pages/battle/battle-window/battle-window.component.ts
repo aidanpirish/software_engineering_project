@@ -26,11 +26,9 @@ export class BattleWindowComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      console.log('loaded Params', params.id);
       this.participantService.setMonster(params.id);
       this.participantService.monster.subscribe(monster => {
         this.monster = monster;
-        console.log(this.monster);
       })
       this.global.currentUser.subscribe( (user:Teacher) => {
         this.user = {
@@ -38,7 +36,6 @@ export class BattleWindowComponent implements OnInit {
           name:user.name.firstName + ' ' + user.name.lastName,
           picture:user.picture
         }
-        console.log(this.user);
       });
     });
     
