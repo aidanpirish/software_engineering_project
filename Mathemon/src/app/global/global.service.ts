@@ -12,7 +12,7 @@ import { User, Teacher, Student } from '../interfaces/user.interface';
 @Injectable()
 export class GlobalService {
 
-  currentUser: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  currentUser: BehaviorSubject<Teacher | Student> = new BehaviorSubject<Teacher | Student>(null);
   isTeacher: BehaviorSubject<boolean>;
   isStudent: BehaviorSubject<boolean>;
   

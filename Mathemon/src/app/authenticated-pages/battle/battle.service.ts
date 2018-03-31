@@ -124,6 +124,6 @@ export class BattleService {
   //clear out data and set up problems for next move
   resetProblems():void{
     this.assignProblems();
-    this.setSolvedResult('');
+    this.setSolvedResult(null);
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable, Input } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { participant } from '../../../interfaces/participantINT.interface';
+import { Participant } from '../../../interfaces/participantINT.interface';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -11,15 +11,15 @@ export class ParticipantService {
   @Input() id:number;
   @Input() type:string;
 
-  monsterCollection:AngularFirestoreCollection<participant>;
-  omonsters:Observable<participant[]>;
-  monsters:participant[];
-  monster: BehaviorSubject<participant> = new BehaviorSubject<participant>(null);
+  monsterCollection:AngularFirestoreCollection<Participant>;
+  omonsters:Observable<Participant[]>;
+  monsters:Participant[];
+  monster: BehaviorSubject<Participant> = new BehaviorSubject<Participant>(null);
 
-  userCollection:AngularFirestoreCollection<participant>;
-  ousers:Observable<participant[]>;
-  users:participant[];
-  user: BehaviorSubject<participant> = new BehaviorSubject<participant>(null);
+  userCollection:AngularFirestoreCollection<Participant>;
+  ousers:Observable<Participant[]>;
+  users:Participant[];
+  user: BehaviorSubject<Participant> = new BehaviorSubject<Participant>(null);
 
   
 

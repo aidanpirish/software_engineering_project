@@ -1,5 +1,6 @@
 import { Component, Input, Output, OnChanges } from '@angular/core';
 import { problem } from '../../../interfaces/problem.interface';
+import { CurrentBattleStatusService } from '../current-battle-status.service';
 
 @Component({
   selector: 'app-moveset-box',
@@ -13,7 +14,8 @@ export class MovesetBoxComponent {
   isAttackMove:boolean = true;
   currentProblem:number;
 
-  constructor() { 
+  constructor(private currentBattleStatusService: CurrentBattleStatusService) { 
+    this.currentBattleStatusService.isAttacking.subscribe(value => this.isAttackMove = value);
   }
 
 

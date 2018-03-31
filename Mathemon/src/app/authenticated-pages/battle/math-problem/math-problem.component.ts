@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 import { problem } from '../../../interfaces/problem.interface';
 import { BattleService } from '../battle.service';
+import { CurrentBattleStatusService } from '../current-battle-status.service';
 
 @Component({
   selector: 'app-math-problem',
@@ -15,7 +16,9 @@ export class MathProblemComponent implements OnChanges {
   isPositionQuestion:boolean = false;
   solution:number;
 
-  constructor(private battleService: BattleService) { }
+  constructor(private battleService: BattleService, private currentBattleStatusService:CurrentBattleStatusService) { 
+
+  }
 
   ngOnChanges() {
     this.getProblem(this.problemNumber);
@@ -56,13 +59,30 @@ export class MathProblemComponent implements OnChanges {
   }
 
   checkAnswer(answer:number){
-    if(answer == this.solution){
-      this.battleService.setSolvedResult('Correct!');
+    if(this.currentBattleStatusService.isAttacking.value){
+      if(answer == this.solution){
+        this.battleService.setSolvedResult('Correct!');
+        let monster = this.currentBattleStatusService.monster.value;
+        monster.hp = monster.hp - 1;
+        this.currentBattleStatusService.monster.next({...monster});
+        
+      }
+      else{
+        this.battleService.setSolvedResult('Wrong!');
+      }
     }
     else{
-      this.battleService.setSolvedResult('Wrong!');
+      if(answer == this.solution){
+        this.battleService.setSolvedResult('Correct!');
+      }
+      else{
+        this.battleService.setSolvedResult('Wrong!');
+        let user = this.currentBattleStatusService.user.value;
+        user.hp = user.hp - 1;
+        this.currentBattleStatusService.user.next({...user});
+      }
     }
-    
+      
 
   }
 
