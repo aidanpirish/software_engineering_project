@@ -9,6 +9,7 @@ import { LevelSelectComponent } from './level-select/level-select.component';
 import { CommonModule } from '@angular/common';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
+import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
 
 const authRoutes: Routes  = [
   {
@@ -41,6 +42,11 @@ const authRoutes: Routes  = [
   canActivate:[AuthGuard],
   component:SignupSuccessComponent
   },
+  {
+  path:'avatar-selection', 
+  canActivate:[AuthGuard],
+  component:AvatarSelectionComponent
+  },
 
 ]
 
@@ -53,7 +59,8 @@ const authRoutes: Routes  = [
   declarations:[
     HomePageComponent,
     StudentSignupComponent,
-    SignupSuccessComponent
+    SignupSuccessComponent,
+    AvatarSelectionComponent
   ],
   exports: [
     RouterModule
