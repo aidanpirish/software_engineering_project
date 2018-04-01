@@ -1,4 +1,3 @@
-
 export interface Participant{
     hp:number
     name:string

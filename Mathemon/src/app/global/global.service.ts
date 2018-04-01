@@ -1,6 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { User, Teacher, Student } from '../interfaces/user.interface';
+import { Avatar } from '../interfaces/avatar.interface';
+import { AngularFirestoreCollection, AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import { LoginService } from '../login/login.service';
 
 
 /**
@@ -10,17 +14,43 @@ import { User, Teacher, Student } from '../interfaces/user.interface';
  * 
  */
 @Injectable()
-export class GlobalService {
+export class GlobalService implements OnInit {
+
+  avatarsCollection:AngularFirestoreCollection<Avatar>;
+  studentsCollection:AngularFirestoreCollection<Student>;
+
+  oavatars:Observable<Avatar[]>;
 
   currentUser: BehaviorSubject<Teacher | Student> = new BehaviorSubject<Teacher | Student>(null);
   isTeacher: BehaviorSubject<boolean>;
   isStudent: BehaviorSubject<boolean>;
   
-  constructor() { 
-    // this.currentUser.subscribe(() => {
-    // })
+  constructor(private db: AngularFirestore) { 
+    
   }
 
+  ngOnInit(){
+  }
 
+  getAvatarList():void{
+    this.avatarsCollection =  this.db.collection('Avatars');
+
+    this.oavatars =  this.avatarsCollection.valueChanges();
+
+  }
+
+  doSomething(){
+    debugger;
+    this.studentsCollection = this.db.collection('Students');
+    this.studentsCollection.snapshotChanges().subscribe(value => {
+      for(let doc of value){
+        console.log(doc.payload.doc.data);
+      }
+    });
+    this.getAvatarList();
+  }
+  saveAvatarSelection(user:Teacher | Student){
+    
+  }
 
 }
