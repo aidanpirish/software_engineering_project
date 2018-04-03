@@ -1,0 +1,5 @@
+<div>
+  <div *ngFor="let avatar of avatars">
+    <img src="{{avatar.picture}}" alt="Avatar" (click)="choosePicture(avatar)" />
+  </div>
+</div>

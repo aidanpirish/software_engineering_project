@@ -8,7 +8,7 @@
         <app-move [problemNumber]="2" (change)="isClicked($event)"></app-move>
       </td>
     </tr>
-    <tr>
+    <tr *ngIf="isAttackMove">
       <td>
         <app-move [problemNumber]="3" (change)="isClicked($event)"></app-move>
       </td>
@@ -17,5 +17,5 @@
       </td>
     </tr>
   </table>
-  <app-math-problem *ngIf="choseProblem" [problem]="currentProblem"></app-math-problem>
+  <app-math-problem *ngIf="choseProblem" [problemNumber]="currentProblem"></app-math-problem>
 </div>

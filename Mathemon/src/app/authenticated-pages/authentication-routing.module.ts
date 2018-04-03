@@ -6,21 +6,17 @@ import { BattleGroundComponent } from './battle/battle-ground/battle-ground.comp
 import { LoginService } from '../login/login.service';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { LevelSelectComponent } from './level-select/level-select.component';
+import { CommonModule } from '@angular/common';
+import { StudentSignupComponent } from './student-signup/student-signup.component';
+import { SignupSuccessComponent } from './signup-success/signup-success.component';
+import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
 
+//these routes are for all pages that need a user to be logged in in order to access
 const authRoutes: Routes  = [
   {
     path:'home',
     component:HomePageComponent,
     canActivate:[AuthGuard],
-    // children:[
-    //   {path: '',
-    //   canActivateChild:[AuthGuard],
-    //   children: [
-    //     {path:'battleground',component:BattleGroundComponent},
-    //     {path:'level-select',component:LevelSelectComponent}
-    //     ]
-    //   }
-    //   ]
   },
   {
     path:'battleground',
@@ -32,17 +28,40 @@ const authRoutes: Routes  = [
       }
     ]
   },
-  {path:'level-select',component:LevelSelectComponent}
+  {
+  path:'level-select',
+  canActivate:[AuthGuard],
+  component:LevelSelectComponent
+  },
+  {
+  path:'student-signup',
+  canActivate:[AuthGuard],
+  component:StudentSignupComponent
+  },
+  {
+  path:'signup-success', 
+  canActivate:[AuthGuard],
+  component:SignupSuccessComponent
+  },
+  {
+  path:'avatar-selection', 
+  canActivate:[AuthGuard],
+  component:AvatarSelectionComponent
+  },
 
 ]
 
 
 @NgModule({
   imports: [
-    RouterModule.forChild(authRoutes)
+    RouterModule.forChild(authRoutes),
+    CommonModule
   ],
   declarations:[
-    HomePageComponent
+    HomePageComponent,
+    StudentSignupComponent,
+    SignupSuccessComponent,
+    AvatarSelectionComponent
   ],
   exports: [
     RouterModule

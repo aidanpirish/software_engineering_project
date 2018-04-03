@@ -1,0 +1,23 @@
+.container {
+    height: 70px;
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "id nm nm nm ty";
+}
+
+#id {
+    grid-area: id;
+    justify-self: center;
+}
+
+#name {
+    grid-area: nm;
+    justify-self: center;
+}
+
+#type {
+    grid-area: ty;
+    justify-self: center;
+}

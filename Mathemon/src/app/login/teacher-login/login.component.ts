@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './login.service';
-import { User } from '../interfaces/user.interface';
+import { LoginService } from '../login.service';
+import { User } from '../../interfaces/user.interface';
 import { debug } from 'util';
 
 @Component({
@@ -13,6 +13,8 @@ export class LoginComponent{
 
   constructor(private loginService: LoginService, public router: Router) { }
 
+  hasError:boolean = false;
+  error:string = '';
   _email:string ;
   _password:string;
 
@@ -32,15 +34,21 @@ export class LoginComponent{
 
 
   login(){
+    this.hasError = false;
+    this.error = '';
     this.loginService.login(
       //create a User object to pass to the method
       {username:this.email, 
-       password:this.password}
+       password:this.password,
+       type:'teacher'
+      }
     ).subscribe( () => {
       if(this.loginService.isLoggedIn){
-        let redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '/home'
-
-        this.router.navigate([redirect]);
+        this.router.navigate(['/home']);
+      }
+      else{
+        this.hasError = true;
+        this.error = 'Invalid Username or Password';
       }
     })
   }
