@@ -30,27 +30,21 @@ export class GlobalService implements OnInit {
   }
 
   ngOnInit(){
+    this.studentsCollection = this.db.collection('Students');
   }
 
   getAvatarList():void{
     this.avatarsCollection =  this.db.collection('Avatars');
-
     this.oavatars =  this.avatarsCollection.valueChanges();
 
   }
 
-  doSomething(){
-    debugger;
-    this.studentsCollection = this.db.collection('Students');
-    this.studentsCollection.snapshotChanges().subscribe(value => {
-      for(let doc of value){
-        console.log(doc.payload.doc.data);
-      }
-    });
-    this.getAvatarList();
-  }
-  saveAvatarSelection(user:Teacher | Student){
-    
+  setNewAvatar(user:Student){
+      this.studentsCollection.doc(`${user.docId}`).update({
+        picture:user.picture
+      });
+
+      
   }
 
 }

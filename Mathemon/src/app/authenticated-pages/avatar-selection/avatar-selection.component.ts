@@ -18,11 +18,12 @@ export class AvatarSelectionComponent implements OnInit {
   ngOnInit() {
     // this.global.doSomething();
     this.global.getAvatarList();
+    this.global.oavatars.subscribe(avatars => this.avatars = avatars);
   }
 
   choosePicture(avatar:Avatar){
     this.global.currentUser.value.picture = avatar.picture;
-    console.log(this.global.currentUser.value);
+    this.router.navigate(['/home']);
   }
 
 

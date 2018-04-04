@@ -22,4 +22,5 @@ export interface Student extends User {
     }
     hp:number;
     picture:any;
+    docId:string;
 }

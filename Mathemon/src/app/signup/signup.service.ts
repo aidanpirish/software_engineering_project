@@ -25,7 +25,13 @@ export class SignupService {
      this.studentCollection.add({
        username:student.username,
        name:student.name,
-       password:student.password
+       password:student.password,
+       picture:""
+     })
+     .then(value => {
+       this.studentCollection.doc(`${value.id}`).update({
+         docId:value.id
+       });
      });
    }
 

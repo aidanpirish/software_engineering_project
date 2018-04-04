@@ -74,6 +74,7 @@ export class LoginService {
   private checkStudentLogin(user:User){
     let result = false;
     for(let student of this.students){
+      console.log(student);
       if(student.username == user.username){
         if(student.password == user.password){
           let currentUser = Object.assign({type:user.type},student);
