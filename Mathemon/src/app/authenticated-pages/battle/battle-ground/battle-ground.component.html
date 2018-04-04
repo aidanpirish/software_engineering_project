@@ -2,15 +2,20 @@
   <div *ngIf="!battleOver">
     <app-battle-window></app-battle-window>
     <app-moveset-box *ngIf="solutionStatus == null"></app-moveset-box>
-    <span *ngIf="solutionStatus">{{solutionStatus}}</span>
-    <button *ngIf="solutionStatus" (click)="resetSolutionStatus()">Next Move</button>
+    <div class="next">
+      <span *ngIf="solutionStatus">{{solutionStatus}}</span> <br>
+      <button *ngIf="solutionStatus" (click)="resetSolutionStatus()" class="btn btn-primary">Next Move</button>
+    </div>
+    
   </div>
   <div *ngIf="battleOver">
-    <h1>
-      Battle Over!
-    </h1>
-    <h1>
-      {{winner}} won!
-    </h1>
+    <div class="over">
+      <h1>
+        Battle Over!
+      </h1>
+      <h1>
+        {{winner}} won!
+      </h1>
+    </div>
   </div>
 </div>

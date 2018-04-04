@@ -4,6 +4,26 @@
     height:93vh;
 }
 
+.next {
+    margin-top:30px;
+    span {
+        font-family: 'Electrolize', sans-serif;
+        color: white;
+        font-size: 28px;
+    }
+    .btn {
+        margin-top: 5px;
+    }
+}
+
+.over {
+    h1 {
+        font-family: 'Electrolize', sans-serif;
+        color: white;
+        font-size: 48px;
+    }
+}
+
 app-moveset-box{
     margin-top: 15px;
 }
