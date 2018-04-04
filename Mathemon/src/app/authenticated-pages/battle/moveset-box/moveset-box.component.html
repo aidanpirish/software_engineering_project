@@ -2,18 +2,18 @@
  <table class="table">
     <tr>
       <td>
-        <app-move [problemNumber]="1" [move]="'tackle'" [difficulty]="'easy'" [type]="'regular'" (click)="isClicked($event)"></app-move>
+        <app-move [problemNumber]="1" [move]="'tackle'" [difficulty]="'easy'" [type]="'regular'" (change)="isClicked($event)"></app-move>
       </td>
       <td>
-        <app-move [problemNumber]="2" [move]="'slash'" [difficulty]="'medium'" [type]="'steel'" (click)="isClicked($event)"></app-move>
+        <app-move [problemNumber]="2" [move]="'slash'" [difficulty]="'medium'" [type]="'steel'" (change)="isClicked($event)"></app-move>
       </td>
     </tr>
     <tr *ngIf="isAttackMove">
       <td>
-        <app-move [problemNumber]="3" [move]="'hyperbeam'" [difficulty]="'hard'" [type]="'ULTRAMEGA'" (click)="isClicked($event)"></app-move>
+        <app-move [problemNumber]="3" [move]="'hyperbeam'" [difficulty]="'hard'" [type]="'ULTRAMEGA'" (change)="isClicked($event)"></app-move>
       </td>
       <td>
-        <app-move [problemNumber]="4" [move]="'slap'" [difficulty]="'easy'" [type]="'meh'" (click)="isClicked($event)"></app-move>
+        <app-move [problemNumber]="4" [move]="'slap'" [difficulty]="'easy'" [type]="'meh'" (change)="isClicked($event)"></app-move>
       </td>
     </tr>
   </table>
