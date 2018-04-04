@@ -30,7 +30,6 @@ export class GlobalService implements OnInit {
   }
 
   ngOnInit(){
-    this.studentsCollection = this.db.collection('Students');
   }
 
   getAvatarList():void{
@@ -39,10 +38,8 @@ export class GlobalService implements OnInit {
 
   }
 
-  setNewAvatar(user:Student){
-      this.studentsCollection.doc(`${user.docId}`).update({
-        picture:user.picture
-      });
+  setNewAvatar(user:Student | Teacher){
+      this.db.collection('Students').doc(`${user.docId}`).update(user);
 
       
   }

@@ -12,6 +12,7 @@ export interface Teacher extends User{
         lastName:string;
     }
     picture:any;
+    docId:string;
 }
 
 export interface Student extends User {

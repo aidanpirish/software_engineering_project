@@ -23,6 +23,7 @@ export class AvatarSelectionComponent implements OnInit {
 
   choosePicture(avatar:Avatar){
     this.global.currentUser.value.picture = avatar.picture;
+    this.global.setNewAvatar(this.global.currentUser.value);
     this.router.navigate(['/home']);
   }
 
