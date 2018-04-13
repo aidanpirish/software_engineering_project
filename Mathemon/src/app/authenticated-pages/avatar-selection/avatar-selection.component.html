@@ -1,8 +1,12 @@
-<div>
-  <div>
+<div class = "container">
+  <div class= "jumbotron">
+    <h1>Choose An Avatar!</h1> <br>
     <a class="btn btn-primary btn-lg" routerLink="/home" routerLinkActive="active" role="button">Go Back</a>
-  </div>
-  <div *ngFor="let avatar of avatars">
-    <img src="{{avatar.picture}}" alt="Avatar" (click)="choosePicture(avatar)" />
+  
+    <div class="avSelect">
+      <div *ngFor="let avatar of avatars" class = "avatars">
+          <img src="{{avatar.picture}}" alt="Avatar" (click)="choosePicture(avatar)" />
+      </div>
+    </div>
   </div>
 </div>

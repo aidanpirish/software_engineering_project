@@ -1,0 +1,37 @@
+
+.jumbotron {
+    margin: 40px 40px 40px 40px;
+    padding: 10px 10px 10px 10px;
+
+}
+
+h1 {
+    margin-top: 20px;
+    font-family: 'Electrolize', sans-serif;
+    color: #255c92;
+}
+
+.btn {
+    font-family: 'Electrolize', sans-serif;
+    background: #255c92;
+}
+
+.avSelect {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+
+    .avatars {
+        
+        height: 150px;
+        grid-column: span 1;
+        grid-row: 1;
+        justify-self: center;
+
+        img {
+            height: 125px;
+            
+        }
+    }
+}
