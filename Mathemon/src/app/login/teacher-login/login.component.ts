@@ -38,9 +38,10 @@ export class LoginComponent{
     this.error = '';
     this.loginService.login(
       //create a User object to pass to the method
-      {username:this.email, 
+      {username:this.email,
        password:this.password,
-       type:'teacher'
+       type:'teacher',
+       refId:''
       }
     ).subscribe( () => {
       if(this.loginService.isLoggedIn){

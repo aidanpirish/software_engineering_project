@@ -8,10 +8,10 @@ import { LoginService } from '../login/login.service';
 
 
 /**
- * 
+ *
  * This service is going to house the currently logged in user as well as any other
  * global variables we may need as development continues
- * 
+ *
  */
 @Injectable()
 export class GlobalService implements OnInit {
@@ -24,9 +24,9 @@ export class GlobalService implements OnInit {
   currentUser: BehaviorSubject<Teacher | Student> = new BehaviorSubject<Teacher | Student>(null);
   isTeacher: BehaviorSubject<boolean>;
   isStudent: BehaviorSubject<boolean>;
-  
-  constructor(private db: AngularFirestore) { 
-    
+
+  constructor(private db: AngularFirestore) {
+
   }
 
   ngOnInit(){
@@ -39,9 +39,9 @@ export class GlobalService implements OnInit {
   }
 
   setNewAvatar(user:Student | Teacher){
-      this.db.collection('Students').doc(`${user.docId}`).update(user);
+      this.db.collection('Students').doc(`${user.refId}`).update(user);
 
-      
+
   }
 
 }

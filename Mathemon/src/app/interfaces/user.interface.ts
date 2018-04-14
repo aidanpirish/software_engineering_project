@@ -3,6 +3,7 @@ export interface User {
     username: string;
     password: string;
     type:string;
+    refId:string;
 }
 
 export interface Teacher extends User{
@@ -12,7 +13,6 @@ export interface Teacher extends User{
         lastName:string;
     }
     picture:any;
-    docId:string;
 }
 
 export interface Student extends User {
@@ -23,5 +23,4 @@ export interface Student extends User {
     }
     hp:number;
     picture:any;
-    docId:string;
 }

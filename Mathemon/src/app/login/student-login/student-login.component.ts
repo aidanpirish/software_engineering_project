@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class StudentLoginComponent{
 
-  
+
   constructor(private loginService: LoginService, public router: Router) { }
 
   hasError:boolean = false;
@@ -37,9 +37,10 @@ export class StudentLoginComponent{
     this.error = '';
     this.loginService.login(
       //create a User object to pass to the method
-      {username:this.email, 
+      {username:this.email,
        password:this.password,
-       type:'student'
+       type:'student',
+       refId:''
     }
     ).subscribe( () => {
       if(this.loginService.isLoggedIn){

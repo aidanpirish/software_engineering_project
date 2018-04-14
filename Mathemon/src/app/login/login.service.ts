@@ -24,13 +24,14 @@ export class LoginService {
 
   //go get teacher and student data from the database
   constructor(
-    private router:Router, 
+    private router:Router,
     private db: AngularFirestore,
     private global: GlobalService
   ){
     this.teachersCollection = db.collection('Teachers');
     this.teachersObservable = this.teachersCollection.valueChanges();
     this.teachersObservable.subscribe(teachers => {
+      console.log(teachers);
       this.teachers = teachers;
     });
     this.studentsCollection = db.collection('Students');
@@ -61,7 +62,8 @@ export class LoginService {
     for(let teacher of this.teachers){
       if(teacher.username == user.username){
         if(teacher.password == user.password){
-          let currentUser = Object.assign({type:user.type},teacher);
+          console.log(teacher);
+          let currentUser = Object.assign({type:user.type},{...teacher});
           this.global.currentUser.next(currentUser);
             result = true;
         }
@@ -74,11 +76,11 @@ export class LoginService {
   private checkStudentLogin(user:User){
     let result = false;
     for(let student of this.students){
-      console.log(student);
       if(student.username == user.username){
         if(student.password == user.password){
-          let currentUser = Object.assign({type:user.type},student);
+          let currentUser = Object.assign({type:user.type},{...student});
           this.global.currentUser.next(currentUser);
+          console.log(currentUser);
             result = true;
         }
       }
@@ -92,5 +94,5 @@ export class LoginService {
     this.redirectUrl = '/student-login';
     this.router.navigate([this.redirectUrl]);
   }
-  
+
 }
