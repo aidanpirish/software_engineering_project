@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { SignupService } from './signup.service';
-import { SignUp } from './signup.definition';
 import { Router } from '@angular/router';
+import { Teacher } from '../interfaces/user.interface';
 
 @Component({
   selector: 'app-signup',
@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private signupService:SignupService, public router: Router) { 
+  constructor(private signupService:SignupService, public router: Router) {
   }
-  
+
   ngOnInit() {
   }
-  
 
-  submitData(newTeacher:SignUp):void {
+
+  submitData(newTeacher:Teacher):void {
     this.signupService.addNewTeacher(newTeacher);
     this.router.navigate(['/student-login']);
   }

@@ -1,11 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore,AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { problem } from '../../interfaces/problem.interface';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { GlobalService } from '../../global/global.service';
+import { Student, Teacher } from '../../interfaces/user.interface';
+import { User } from '@firebase/auth-types';
 
 @Injectable()
-export class BattleService {
+export class BattleService implements OnInit{
 
   //database variables
   problemCollection: AngularFirestoreCollection<problem>;
@@ -26,19 +29,38 @@ export class BattleService {
   problem2Solution:BehaviorSubject<number> = new BehaviorSubject<number>(null);
   problem3Solution:BehaviorSubject<number> = new BehaviorSubject<number>(null);
   problem4Solution:BehaviorSubject<number> = new BehaviorSubject<number>(null);
-  
+
   //solution result for after an answer is submitted
   solvedResult:BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
   //get problem information from the database when service is constructed so it is cached for the whole battle
-  constructor(private db: AngularFirestore) { 
-    this.problemCollection = this.db.collection('Questions');
-    this.problemsO = this.problemCollection.valueChanges();
-    this.problemsO.subscribe(data => {
-      this.generateProblemGroups(data);
-      this.assignProblems();
-      }
-    );
+  constructor(
+    private db: AngularFirestore,
+    private global: GlobalService
+  ) {
+
+  }
+
+  ngOnInit(){
+
+    if(this.global.currentUserTeacher){
+      this.problemCollection = this.db.collection('Teacher').doc(`${this.global.currentUserTeacher.value.refId}`).collection('Questions');
+      this.problemsO = this.problemCollection.valueChanges();
+      this.problemsO.subscribe(data => {
+        this.generateProblemGroups(data);
+        this.assignProblems();
+        }
+      );
+    }
+    else {
+      this.problemCollection = this.db.collection('Teacher').doc(`${this.global.currentUserStudent.value.teacherId}`).collection('Questions');
+      this.problemsO = this.problemCollection.valueChanges();
+      this.problemsO.subscribe(data => {
+        this.generateProblemGroups(data);
+        this.assignProblems();
+        }
+      );
+    }
   }
 
   //separate problems into their difficulty levels
@@ -113,7 +135,7 @@ export class BattleService {
     this.pickRandomProblem(this.level2Problems, this.problem2);
     this.pickRandomProblem(this.level3Problems, this.problem3);
     this.pickRandomProblem(this.level1Problems, this.problem4);
-    
+
   }
 
   //set answer for if student was right or wrong. string value comes from math-problem component

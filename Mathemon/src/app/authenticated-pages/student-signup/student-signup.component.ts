@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SignUp } from '../../signup/signup.definition';
 import { SignupService } from '../../signup/signup.service';
 import { Router } from '@angular/router';
+import { Student } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-student-signup',
@@ -15,7 +15,7 @@ export class StudentSignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitData(newStudent:SignUp):void {
+  submitData(newStudent:Student):void {
     this.signupService.addNewStudent(newStudent);
     this.router.navigate(['/signup-success']);
   }

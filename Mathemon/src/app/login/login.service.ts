@@ -31,7 +31,7 @@ export class LoginService {
     this.teachersCollection = db.collection('Teachers');
     this.teachersObservable = this.teachersCollection.valueChanges();
     this.teachersObservable.subscribe(teachers => {
-      console.log(teachers);
+      // console.log(teachers);
       this.teachers = teachers;
     });
     this.studentsCollection = db.collection('Students');
@@ -62,9 +62,8 @@ export class LoginService {
     for(let teacher of this.teachers){
       if(teacher.username == user.username){
         if(teacher.password == user.password){
-          console.log(teacher);
           let currentUser = Object.assign({type:user.type},{...teacher});
-          this.global.currentUser.next(currentUser);
+          this.global.currentUserTeacher.next(currentUser);
             result = true;
         }
       }
@@ -79,8 +78,7 @@ export class LoginService {
       if(student.username == user.username){
         if(student.password == user.password){
           let currentUser = Object.assign({type:user.type},{...student});
-          this.global.currentUser.next(currentUser);
-          console.log(currentUser);
+          this.global.currentUserStudent.next(currentUser);
             result = true;
         }
       }

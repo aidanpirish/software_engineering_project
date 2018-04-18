@@ -45,7 +45,7 @@ export class LoginComponent{
       }
     ).subscribe( () => {
       if(this.loginService.isLoggedIn){
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home', 'teacher']);
       }
       else{
         this.hasError = true;

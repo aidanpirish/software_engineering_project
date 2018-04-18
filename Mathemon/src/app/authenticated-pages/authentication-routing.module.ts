@@ -14,7 +14,7 @@ import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.co
 //these routes are for all pages that need a user to be logged in in order to access
 const authRoutes: Routes  = [
   {
-    path:'home',
+    path:'home/:type',
     component:HomePageComponent,
     canActivate:[AuthGuard],
   },
@@ -39,12 +39,12 @@ const authRoutes: Routes  = [
   component:StudentSignupComponent
   },
   {
-  path:'signup-success', 
+  path:'signup-success',
   canActivate:[AuthGuard],
   component:SignupSuccessComponent
   },
   {
-  path:'avatar-selection', 
+  path:'avatar-selection',
   canActivate:[AuthGuard],
   component:AvatarSelectionComponent
   },

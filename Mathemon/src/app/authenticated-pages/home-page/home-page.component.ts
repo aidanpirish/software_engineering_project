@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { GlobalService } from '../../global/global.service';
 import { User } from '../../interfaces/user.interface';
 
@@ -12,15 +12,20 @@ export class HomePageComponent implements OnInit {
 
   isTeacher:boolean = false;
 
-  constructor(private router:Router, private global: GlobalService) {
-    this.global.currentUser.subscribe((currentUser:User) => {
-        if(currentUser.type == 'teacher'){
-          this.isTeacher = true;
-        }
-    });
-   }
+  constructor(
+    private router:Router,
+    private global: GlobalService,
+    private route: ActivatedRoute
+  ) {
+
+  }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+        if(params.type == 'teacher'){
+          this.isTeacher = true
+        }
+    });
   }
 
 }

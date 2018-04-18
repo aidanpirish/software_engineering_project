@@ -34,15 +34,26 @@ export class BattleWindowComponent implements OnInit {
       this.participantService.monster.subscribe(monster => {
         this.currentBattleStatusService.monster.next(monster);
       })
-      this.global.currentUser.subscribe( (user:Teacher) => {
+      if(this.global.currentUserTeacher.value != null){
+      this.global.currentUserTeacher.subscribe(user => {
         this.currentBattleStatusService.user.next({
           hp:4,
           name:user.name.firstName + ' ' + user.name.lastName,
           picture:user.picture
         })
       });
+    }
+    else{
+      this.global.currentUserStudent.subscribe(user => {
+        this.currentBattleStatusService.user.next({
+          hp:4,
+          name:user.name.firstName + ' ' + user.name.lastName,
+          picture:user.picture
+        })
+      });
+    }
     });
-    
+
   }
 
 }

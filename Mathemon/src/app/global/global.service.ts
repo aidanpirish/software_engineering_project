@@ -21,9 +21,8 @@ export class GlobalService implements OnInit {
 
   oavatars:Observable<Avatar[]>;
 
-  currentUser: BehaviorSubject<Teacher | Student> = new BehaviorSubject<Teacher | Student>(null);
-  isTeacher: BehaviorSubject<boolean>;
-  isStudent: BehaviorSubject<boolean>;
+  currentUserTeacher: BehaviorSubject<Teacher> = new BehaviorSubject<Teacher>(null);
+  currentUserStudent: BehaviorSubject<Student> = new BehaviorSubject<Student>(null);
 
   constructor(private db: AngularFirestore) {
 

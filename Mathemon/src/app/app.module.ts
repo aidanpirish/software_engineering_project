@@ -53,8 +53,8 @@ import { StudentSignupComponent } from './authenticated-pages/student-signup/stu
   providers: [ SignupService, GlobalService],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
   constructor(router: Router) {
-    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    // console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
 }
