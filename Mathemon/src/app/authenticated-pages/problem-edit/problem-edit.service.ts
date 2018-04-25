@@ -8,10 +8,10 @@ import { problem } from '../../interfaces/problem.interface';
 export class ProblemEditService {
 
   // This will be the array that holds the problems
-  questions:Observable<problem[]>;
+  questions: Observable<problem[]>;
 
   // this is the question collection for the current teacher
-  questionCollection:any;
+  questionCollection: any;
 
   constructor(
     private db: AngularFirestore,
@@ -23,35 +23,37 @@ export class ProblemEditService {
       return actions.map(d => {
         const question = d.payload.doc.data() as problem;
         const id = d.payload.doc.id;
-        return {id, ...question};
+        return { id, ...question };
       });
     });
 
-   }
+  }
 
-   //edits the given question
-   editQuestion(questionId:string){
-     /**
-      * this method needs to call on the specific question document and update the appropriate fields. See avatar selection for semi-example code
-      */
+  // FOR EDIT QUESTION AND DELETE QUESTION THE QUESTION THAT BEING HANDED IN HAD ID WHICH IS THE DOC REF STRING AND THE REST OF THE FIELDS ARE THE CONTENTS OF THE DOC
+
+  //edits the given question
+  editQuestion(question: any) {
+    /**
+     * this method needs to call on the specific question document and update the appropriate fields. See avatar selection for semi-example code
+     */
     //this.questionCollection
-   }
+  }
 
-   //adds question to the database
-   addQuestion(problem:problem){
-     /**
-      * this method needs to PUT a question into the list. Look up angularfire2 documentation on adding a new document (questions are documents)
-      */
+  //adds question to the database
+  addQuestion(problem: problem) {
+    /**
+     * this method needs to PUT a question into the list. Look up angularfire2 documentation on adding a new document (questions are documents)
+     */
     //this.db.questionCollection()
-   }
+  }
 
-   //deletes question from datadatabase
-   deleteQuestion(questionId:string){
-     /**
-      * this needs to remove a question from the database. look up angularfire2 documentation on removing a document (again, questions are documents)
-      */
+  //deletes question from datadatabase
+  deleteQuestion(question: any) {
+    /**
+     * this needs to remove a question from the database. look up angularfire2 documentation on removing a document (again, questions are documents)
+     */
     //this.db.questionCollection()
-   }
+  }
 
 
 

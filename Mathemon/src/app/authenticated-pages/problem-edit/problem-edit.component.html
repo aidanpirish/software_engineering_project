@@ -1,74 +1,88 @@
 <div class="jumbotron">
 
   <div class="container">
-      <h1>Edit Questions</h1>
+    <h1>Edit Questions</h1>
 
-      <!-- <div *ngFor="let avatar of avatars" class = "avatars">
+    <!-- <div *ngFor="let avatar of avatars" class = "avatars">
         <img src="{{avatar.picture}}" alt="Avatar" (click)="choosePicture(avatar)" />
       </div> -->
 
 
-      <div class="regular-expression">
-        <h2>Regular Expression</h2>
-          <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Left-Side</th>
-                  <th scope="col">Right-Side</th>
-                  <th scope="col">Expression</th>
-                  <th scope="col">Difficulty</th>
-                  <th scope="col">Edit</th>
-                  <th scope="col">Delete</th>
-                </tr>
-              </thead>
-              <!-- <tbody *ngFor="let question of addSubQuestions" class = "questions"> -->
-                  <!--
+    <div class="regular-expression">
+      <h2>Regular Expression</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Left-Side</th>
+            <th scope="col">Right-Side</th>
+            <th scope="col">Expression</th>
+            <th scope="col">Difficulty</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <!-- <tbody *ngFor="let question of addSubQuestions" class = "questions"> -->
+        <!--
                       <td><input type="number" [(value)]="problem.left_side"></td>
                       <td><input type="number" [(value)]="problem.right_side"></td>
                       <td><input type="text" [(value)]="problem.expression"></td>
                       <td><input type="number" [(value)]="problem.difficulty"></td>
                       <td (click)="editProblem(question.id)"><i class="far fa-edit"></i></td>
                       <td (click)="deleteProblem(question.id)"><i class="far fa-trash-alt"></i></td>-->
-              <tbody>
-                <tr>
-                  <td id="reg_left">12</td>
-                  <td id="reg_right">13</td>
-                  <td id="reg_expr">+</td>
-                  <td id="reg_">2</td>
-                  <td ONCLICK><i class="far fa-edit"></i></td>
-                  <td ONCLICKs><i class="far fa-trash-alt"></i></td>
-                </tr>
+        <tbody>
+          <tr>
+            <td id="reg_left">12</td>
+            <td id="reg_right">13</td>
+            <td id="reg_expr">+</td>
+            <td id="reg_">2</td>
+            <td ONCLICK>
+              <i class="far fa-edit"></i>
+            </td>
+            <td ONCLICKs>
+              <i class="far fa-trash-alt"></i>
+            </td>
+          </tr>
 
-                <tr>
-                  <td><input type="text" #leftSide></td>
-                  <td><input type="text" #rightSide></td>
-                  <td><input type="text" #expression></td>
-                  <td><input type="text" #difficulty></td>
-                  <td (click)="addProblem({left_side:leftSide.value,right_side:rightSide.value, diff:difficulty.value, expression:expression.value})"><i class="fas fa-plus"></i></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
+          <tr>
+            <td>
+              <input type="text" #leftSide>
+            </td>
+            <td>
+              <input type="text" #rightSide>
+            </td>
+            <td>
+              <input type="text" #expression>
+            </td>
+            <td>
+              <input type="text" #difficulty>
+            </td>
+            <td (click)="addProblem(question)">
+              <i class="fas fa-plus"></i>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
 
-            <button type="button" class="btn btn-sm btn-primary">Add Question</button>
-      </div>
+      <button type="button" class="btn btn-sm btn-primary">Add Question</button>
+    </div>
 
 
-      <div class="value-at-position">
-        <h2>Value at Position</h2>
-          <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">1s</th>
-              <th scope="col">10s</th>
-              <th scope="col">100s</th>
-              <th scope="col">Expression</th>
-              <th scope="col">Dificulty</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <!-- <tbody *ngFor="let question of onesTensQuestions" class = "questions">
+    <div class="value-at-position">
+      <h2>Value at Position</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">1s</th>
+            <th scope="col">10s</th>
+            <th scope="col">100s</th>
+            <th scope="col">Expression</th>
+            <th scope="col">Dificulty</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <!-- <tbody *ngFor="let question of onesTensQuestions" class = "questions">
               <td><input type="number" [(value)]="problem.ones"></td>
               <td><input type="number" [(value)]="problem.tens"></td>
               <td><input type="number" [(value)]="problem.hundreds"></td>
@@ -76,31 +90,47 @@
               <td><input type="number" [(value)]="problem.difficulty"></td>
               <td (click)="editProblem(question.id)"><i class="far fa-edit"></i></td>
               <td (click)="deleteProblem(question.id)"><i class="far fa-trash-alt"></i></td>-->
-          <tbody>
-            <tr>
-              <td id="vap_ones">3</td>
-              <td id="vap_tens">2 </td>
-              <td id="vap_hund">3</td>
-              <td id="vap_expr">ones</td>
-              <td id="vap_diff">1</td>
-              <td (click)="editProblem()"><i class="far fa-edit"></i></td>
-              <td (click)="deleteProblem()"><i class="far fa-trash-alt"></i></td>
-            </tr>
+        <tbody>
+          <tr>
+            <td id="vap_ones">3</td>
+            <td id="vap_tens">2 </td>
+            <td id="vap_hund">3</td>
+            <td id="vap_expr">ones</td>
+            <td id="vap_diff">1</td>
+            <td (click)="editProblem()">
+              <i class="far fa-edit"></i>
+            </td>
+            <td (click)="deleteProblem()">
+              <i class="far fa-trash-alt"></i>
+            </td>
+          </tr>
 
-            <tr>
-              <td><input name="ones" type="text" #ones></td>
-              <td><input name="tens" type="text" #tens></td>
-              <td><input name="hundreds" type="text" #hundreds></td>
-              <td><input name="expression" type="text" #expression2></td>
-              <td><input name="difficulty" type="text" #diff></td>
-              <td (click)="addProblem({ones:ones.value, tens:tens.value,hundreds:hundreds.value, expression:expression2.value, diff:diff.value})"><i class="fas fa-plus"></i></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+          <tr>
+            <td>
+              <input name="ones" type="text" #ones>
+            </td>
+            <td>
+              <input name="tens" type="text" #tens>
+            </td>
+            <td>
+              <input name="hundreds" type="text" #hundreds>
+            </td>
+            <td>
+              <input name="expression" type="text" #expression2>
+            </td>
+            <td>
+              <input name="difficulty" type="text" #diff>
+            </td>
+            <td (click)="addProblem(question)">
+              <i class="fas fa-plus"></i>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
 
-        <button type="button" class="btn btn-primary">Add Question</button>
-      </div>
+      <button type="button" class="btn btn-primary">Add Question</button>
+    </div>
 
 
   </div>

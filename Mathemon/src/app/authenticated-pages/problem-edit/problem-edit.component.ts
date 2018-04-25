@@ -8,13 +8,13 @@ import { ProblemEditService } from './problem-edit.service';
   selector: 'app-problem-edit',
   templateUrl: './problem-edit.component.html',
   styleUrls: ['./problem-edit.component.scss'],
-  providers:[ProblemEditService]
+  providers: [ProblemEditService]
 })
 export class ProblemEditComponent {
 
-  questions:problem[];
-  addSubQuestions:any[];
-  onesTensQuestions:any[];
+  questions: problem[];
+  addSubQuestions: any[];
+  onesTensQuestions: any[];
 
   constructor(private global: GlobalService, private router: Router, private PEService: ProblemEditService) {
     this.PEService.questions.subscribe(questions => {
@@ -25,29 +25,30 @@ export class ProblemEditComponent {
 
   //sorts the problems into their different types
   sortProblems() {
-    for(let problem of this.questions){
-      if(problem.expression== 'ones' || problem.expression== 'tens' ||problem.expression== 'hundreds' ){
+    for (let problem of this.questions) {
+      if (problem.expression == 'ones' || problem.expression == 'tens' || problem.expression == 'hundreds') {
         this.onesTensQuestions.push(problem);
       }
-      else{
+      else {
         this.addSubQuestions.push(problem);
       }
     }
   }
 
   // Takes in problem id and hands problem to service to do the actual change
-  editProblem(problemId:string){
-    this.PEService.editQuestion(problemId);
+  // problem is
+  editProblem(question: any) {
+    this.PEService.editQuestion(question);
   }
 
   //hand problem to service to do upload to database
-  addProblem(problem:problem){
+  addProblem(problem: problem) {
     this.PEService.addQuestion(problem);
   }
 
   //hand problem id to serivce to do delete from database
-  deleteProblem(problemId:string){
-    this.PEService.deleteQuestion(problemId);
+  deleteProblem(question: any) {
+    this.PEService.deleteQuestion(question);
   }
 
 
