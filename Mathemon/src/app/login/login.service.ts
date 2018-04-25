@@ -73,11 +73,15 @@ export class LoginService {
 
   //user was a student, check student accounts to see if valid
   private checkStudentLogin(user:User){
+    const date = new Date();
     let result = false;
     for(let student of this.students){
       if(student.username == user.username){
         if(student.password == user.password){
-          let currentUser = Object.assign({type:user.type},{...student});
+          let currentUser = Object.assign({...student});
+          this.db.collection('Students').doc(`${currentUser.refId}`).collection('Logs').add({date:date.toDateString()}).then(ref => {
+            this.global.currLogId = ref.id;
+          });
           this.global.currentUserStudent.next(currentUser);
             result = true;
         }
