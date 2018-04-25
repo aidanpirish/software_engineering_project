@@ -1,4 +1,4 @@
-export interface problem{
+export interface Problem{
     expression:string,
     left_side:number,
     right_side:number,

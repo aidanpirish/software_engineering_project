@@ -1,3 +1,92 @@
-<p>
-  problem-edit works!
-</p>
+<div class="jumbotron">
+        
+  <div class="container">
+      <h1>Edit Questions</h1> 
+      
+      <!-- <div *ngFor="let avatar of avatars" class = "avatars">
+        <img src="{{avatar.picture}}" alt="Avatar" (click)="choosePicture(avatar)" />
+      </div> -->
+
+      
+      <div class="regular-expression">
+        <h2>Regular Expression</h2>
+          <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Left-Side</th>
+                  <th scope="col">Right-Side</th>
+                  <th scope="col">Expression</th>
+                  <th scope="col">Difficulty</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <!-- <tbody *ngFor="let question of questions" class = "questions"> -->
+              <tbody>
+                <tr>
+                  <td>12</td>
+                  <td>13</td>
+                  <td>+</td>
+                  <td>2</td>
+                  <td ONCLICK><i class="far fa-edit"></i></td>
+                  <td ONCLICKs><i class="far fa-trash-alt"></i></td>
+                </tr>
+
+                <tr>
+                  <td><input type="text"></td>
+                  <td><input type="text"></td>
+                  <td><input type="text"></td>
+                  <td><input type="text"></td>
+                  <td ONCLICK><i class="fas fa-plus"></i></td>
+                  <td ONCLICKs></td>
+                </tr>
+              </tbody>
+            </table>
+      
+            <button type="button" class="btn btn-sm btn-primary">Add Question</button>
+      </div>
+      
+
+      <div class="value-at-position">
+        <h2>Value at Position</h2>
+          <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">1s</th>
+              <th scope="col">10s</th>
+              <th scope="col">100s</th>
+              <th scope="col">Expression</th>
+              <th scope="col">Dificulty</th>  
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <!-- <tbody *ngFor="let question of questions" class = "questions"> -->
+          <tbody>
+            <tr>
+              <td>3</td>
+              <td>2</td>
+              <td>3</td>
+              <td>ones</td>
+              <td>1</td>
+              <td ONCLICK><i class="far fa-edit"></i></td>
+              <td ONCLICKs><i class="far fa-trash-alt"></i></td>
+            </tr>
+
+            <tr>
+              <td><input type="text"></td>
+              <td><input type="text"></td>
+              <td><input type="text"></td>
+              <td><input type="text"></td>
+              <td ONCLICK><i class="fas fa-plus"></i></td>
+              <td ONCLICKs></td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <button type="button" class="btn btn-primary">Add Question</button>
+      </div>
+
+
+  </div>
+</div>

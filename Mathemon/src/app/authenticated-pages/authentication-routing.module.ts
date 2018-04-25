@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { StudentSignupComponent } from './student-signup/student-signup.component';
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
+import { ProblemEditComponent } from './problem-edit/problem-edit.component';
 
 //these routes are for all pages that need a user to be logged in in order to access
 const authRoutes: Routes  = [
@@ -48,6 +49,11 @@ const authRoutes: Routes  = [
   canActivate:[AuthGuard],
   component:AvatarSelectionComponent
   },
+  {
+  path:'problem-edit',
+  canActivate:[AuthGuard],
+  component:ProblemEditComponent
+  }
 
 ]
 
@@ -61,7 +67,8 @@ const authRoutes: Routes  = [
     HomePageComponent,
     StudentSignupComponent,
     SignupSuccessComponent,
-    AvatarSelectionComponent
+    AvatarSelectionComponent,
+    ProblemEditComponent
   ],
   exports: [
     RouterModule

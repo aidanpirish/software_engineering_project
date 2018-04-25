@@ -39,8 +39,7 @@ export class GlobalService implements OnInit {
 
   setNewAvatar(user:Student | Teacher){
       this.db.collection('Students').doc(`${user.refId}`).update(user);
-
-
   }
 
+  
 }
