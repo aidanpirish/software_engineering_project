@@ -24,10 +24,10 @@
               <!-- <tbody *ngFor="let question of questions" class = "questions"> -->
               <tbody>
                 <tr>
-                  <td>12</td>
-                  <td>13</td>
-                  <td>+</td>
-                  <td>2</td>
+                  <td id="reg_left">12</td>
+                  <td id="reg_right">13</td>
+                  <td id="reg_expr">+</td>
+                  <td id="reg_diff">2</td>
                   <td ONCLICK><i class="far fa-edit"></i></td>
                   <td ONCLICKs><i class="far fa-trash-alt"></i></td>
                 </tr>
@@ -38,7 +38,7 @@
                   <td><input type="text"></td>
                   <td><input type="text"></td>
                   <td ONCLICK><i class="fas fa-plus"></i></td>
-                  <td ONCLICKs></td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
@@ -64,22 +64,23 @@
           <!-- <tbody *ngFor="let question of questions" class = "questions"> -->
           <tbody>
             <tr>
-              <td>3</td>
-              <td>2</td>
-              <td>3</td>
-              <td>ones</td>
-              <td>1</td>
+              <td id="vap_ones">3</td>
+              <td id="vap_tens">2 </td>
+              <td id="vap_hund">3</td>
+              <td id="vap_expr">ones</td>
+              <td id="vap_diff">1</td>
               <td ONCLICK><i class="far fa-edit"></i></td>
               <td ONCLICKs><i class="far fa-trash-alt"></i></td>
             </tr>
 
             <tr>
-              <td><input type="text"></td>
-              <td><input type="text"></td>
-              <td><input type="text"></td>
-              <td><input type="text"></td>
+              <td><input name="ones" type="text"></td>
+              <td><input name="tens" type="text"></td>
+              <td><input name="hundreds" type="text"></td>
+              <td><input name="expression" type="text"></td>
+              <td><input name="difficulty" type="text"></td>
               <td ONCLICK><i class="fas fa-plus"></i></td>
-              <td ONCLICKs></td>
+              <td></td>
             </tr>
           </tbody>
         </table>
