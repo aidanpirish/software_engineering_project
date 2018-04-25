@@ -24,6 +24,10 @@ export class GlobalService implements OnInit {
   currentUserTeacher: BehaviorSubject<Teacher> = new BehaviorSubject<Teacher>(null);
   currentUserStudent: BehaviorSubject<Student> = new BehaviorSubject<Student>(null);
 
+  currLogId:string = '';
+
+  problemCount:number = 0;
+
   constructor(private db: AngularFirestore) {
 
   }

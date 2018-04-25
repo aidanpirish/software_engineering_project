@@ -38,13 +38,8 @@ export class BattleService implements OnInit{
     private db: AngularFirestore,
     private global: GlobalService
   ) {
-
-  }
-
-  ngOnInit(){
-
-    if(this.global.currentUserTeacher){
-      this.problemCollection = this.db.collection('Teacher').doc(`${this.global.currentUserTeacher.value.refId}`).collection('Questions');
+    if(this.global.currentUserTeacher.value != null){
+      this.problemCollection = this.db.collection('Teachers').doc(`${this.global.currentUserTeacher.value.refId}`).collection('Questions');
       this.problemsO = this.problemCollection.valueChanges();
       this.problemsO.subscribe(data => {
         this.generateProblemGroups(data);
@@ -53,7 +48,7 @@ export class BattleService implements OnInit{
       );
     }
     else {
-      this.problemCollection = this.db.collection('Teacher').doc(`${this.global.currentUserStudent.value.teacherId}`).collection('Questions');
+      this.problemCollection = this.db.collection('Teachers').doc(`${this.global.currentUserStudent.value.teacherId}`).collection('Questions');
       this.problemsO = this.problemCollection.valueChanges();
       this.problemsO.subscribe(data => {
         this.generateProblemGroups(data);
@@ -61,6 +56,9 @@ export class BattleService implements OnInit{
         }
       );
     }
+  }
+
+  ngOnInit(){
   }
 
   //separate problems into their difficulty levels
@@ -103,14 +101,18 @@ export class BattleService implements OnInit{
 
   //generate solution for each problem
   private findSolution(problem:problem, solution: BehaviorSubject<number>) {
-    var leftSide:number = problem.left_side;
-    var rightSide:number  = problem.right_side;
+    let leftSide:number;
+    let rightSide:number;
     switch(problem.expression) {
       case '+': {
+        leftSide = problem.left_side;
+        rightSide = problem.right_side;
         solution.next(leftSide + rightSide);
         break;
       }
       case '-': {
+        leftSide = problem.left_side;
+        rightSide = problem.right_side;
         solution.next(leftSide - rightSide);
         break;
       }
