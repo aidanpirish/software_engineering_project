@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ProblemEditComponent implements OnInit {
 
-  problems:Problem[];
+  //problems:Problem[];
 
   constructor(private global: GlobalService, private router: Router) {
    }
