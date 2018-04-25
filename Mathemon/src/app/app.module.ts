@@ -26,6 +26,10 @@ import { GlobalService } from './global/global.service';
 import { StudentLoginComponent } from './login/student-login/student-login.component';
 import { BattleModule } from './authenticated-pages/battle/battle.module';
 import { StudentSignupComponent } from './authenticated-pages/student-signup/student-signup.component';
+import { SeeLogsComponent } from './authenticated-pages/see-logs/see-logs.component';
+import { StudentListComponent } from './authenticated-pages/see-logs/student-list/student-list.component';
+import { LogsListComponent } from './authenticated-pages/see-logs/logs-list/logs-list.component';
+import { ViewResponesComponent } from './authenticated-pages/see-logs/view-respones/view-respones.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { StudentSignupComponent } from './authenticated-pages/student-signup/stu
     StudentLoginComponent,
     SignupComponent,
     PageNotFoundComponent,
-    LevelSelectComponent
+    LevelSelectComponent,
+    SeeLogsComponent,
+    StudentListComponent,
+    LogsListComponent,
+    ViewResponesComponent
   ],
   imports: [
     FormsModule,
