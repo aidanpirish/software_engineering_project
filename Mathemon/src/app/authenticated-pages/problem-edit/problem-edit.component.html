@@ -3,11 +3,6 @@
   <div class="container">
     <h1>Edit Questions</h1>
 
-    <!-- <div *ngFor="let avatar of avatars" class = "avatars">
-        <img src="{{avatar.picture}}" alt="Avatar" (click)="choosePicture(avatar)" />
-      </div> -->
-
-
     <div class="regular-expression">
       <h2>Regular Expression</h2>
       <table class="table table-striped">
@@ -30,11 +25,11 @@
                       <td (click)="editProblem(question.id)"><i class="far fa-edit"></i></td>
                       <td (click)="deleteProblem(question.id)"><i class="far fa-trash-alt"></i></td>-->
         <tbody>
-          <tr>
-            <td id="reg_left">12</td>
-            <td id="reg_right">13</td>
-            <td id="reg_expr">+</td>
-            <td id="reg_">2</td>
+          <tr *ngFor="let question of addSubQuestions" class = "questions">
+            <td id="reg_left"><input type="number" [(value)]="question.left_side"></td>
+            <td id="reg_right"><input type="number" [(value)]="question.right_side"></td>
+            <td id="reg_expr"><input type="text" [(value)]="question.expression"></td>
+            <td id="reg_"><input type="number" [(value)]="question.difficulty"></td>
             <td ONCLICK>
               <i class="far fa-edit"></i>
             </td>
@@ -43,24 +38,24 @@
             </td>
           </tr>
 
-          <tr>
+          <!-- <tr>
             <td>
-              <input type="text" #leftSide>
+              <input type="number" #leftSide>
             </td>
             <td>
-              <input type="text" #rightSide>
+              <input type="number" #rightSide>
             </td>
             <td>
               <input type="text" #expression>
             </td>
             <td>
-              <input type="text" #difficulty>
+              <input type="number" #difficulty>
             </td>
             <td (click)="addProblem(question)">
               <i class="fas fa-plus"></i>
             </td>
             <td></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
 
@@ -90,7 +85,7 @@
               <td><input type="number" [(value)]="problem.difficulty"></td>
               <td (click)="editProblem(question.id)"><i class="far fa-edit"></i></td>
               <td (click)="deleteProblem(question.id)"><i class="far fa-trash-alt"></i></td>-->
-        <tbody>
+        <!-- <tbody *ngFor="let question of onesTensQuestions" class = "questions">
           <tr>
             <td id="vap_ones">3</td>
             <td id="vap_tens">2 </td>
@@ -126,7 +121,7 @@
             </td>
             <td></td>
           </tr>
-        </tbody>
+        </tbody> -->
       </table>
 
       <button type="button" class="btn btn-primary">Add Question</button>

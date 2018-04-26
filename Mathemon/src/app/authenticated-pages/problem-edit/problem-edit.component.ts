@@ -21,6 +21,7 @@ export class ProblemEditComponent {
       this.questions = questions;
       this.sortProblems();
     });
+    console.log(this.questions);
   }
 
   //sorts the problems into their different types
