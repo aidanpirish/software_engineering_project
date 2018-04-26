@@ -6,7 +6,7 @@ import { GlobalService } from '../../global/global.service';
 import { User } from '@firebase/auth-types';
 
 @Injectable()
-export class SeeLogsService implements OnInit{
+export class SeeLogsService{
 
   //databaser variables
   studentCollections: AngularFirestoreCollection<Student>;
@@ -29,7 +29,7 @@ export class SeeLogsService implements OnInit{
     this.studentsO = this.studentCollections.valueChanges();
 
 
-  ngOnInit(){
+
   }
 
 }
