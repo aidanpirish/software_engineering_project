@@ -13,15 +13,15 @@ import { ProblemEditService } from './problem-edit.service';
 export class ProblemEditComponent {
 
   questions: problem[];
-  addSubQuestions: any[];
-  onesTensQuestions: any[];
+  addSubQuestions: any[] = new Array<any>();
+  onesTensQuestions: any[] = new Array<any>();
 
   constructor(private global: GlobalService, private router: Router, private PEService: ProblemEditService) {
     this.PEService.questions.subscribe(questions => {
       this.questions = questions;
+      console.log(this.questions);
       this.sortProblems();
     });
-    console.log(this.questions);
   }
 
   //sorts the problems into their different types
