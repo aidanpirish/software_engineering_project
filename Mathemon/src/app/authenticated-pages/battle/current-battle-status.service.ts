@@ -4,6 +4,7 @@ import { GlobalService } from '../../global/global.service';
 import { User, Teacher, Student } from '../../interfaces/user.interface';
 import { Participant } from '../../interfaces/participantINT.interface';
 import { ParticipantService } from './participant/participant.service';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Injectable()
 export class CurrentBattleStatusService {
@@ -27,7 +28,10 @@ export class CurrentBattleStatusService {
   //if there is a winner, this is who it was
   winner:BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
-  constructor(private global: GlobalService, private participantService:ParticipantService) {
+  //for updating the highest level
+  currentLevel:number;
+
+  constructor(private global: GlobalService, private participantService:ParticipantService, private db:AngularFirestore) {
 
   }
 
@@ -45,6 +49,14 @@ export class CurrentBattleStatusService {
       this.battleOver.next(true);
       if(this.monster.value.hp == 0){
         this.winner.next(this.user.value.name);
+        if(this.global.currentUserStudent.value != null){
+          if(this.currentLevel > this.global.currentUserStudent.value.highestLevel){
+            this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
+            .update(
+              {highestLevel:this.currentLevel}
+            );
+          }
+        }
       }
       else{
         this.winner.next(this.monster.value.name);

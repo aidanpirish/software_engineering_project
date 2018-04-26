@@ -31,6 +31,7 @@ export class BattleWindowComponent implements OnInit {
     this.currentBattleStatusService.user.subscribe(value => this.user = value);
     this.route.params.subscribe(params => {
       this.participantService.setMonster(params.id);
+      this.currentBattleStatusService.currentLevel = params.id;
       this.participantService.monster.subscribe(monster => {
         this.currentBattleStatusService.monster.next(monster);
       })

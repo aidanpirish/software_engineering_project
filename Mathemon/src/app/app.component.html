@@ -8,7 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active" *ngIf="isLoggedIn">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home
+          <a class="nav-link" routerLink="/home/student" routerLinkActive="active">Student Home
+            <span class="sr-only">(current)</span>
+            <i class="fas fa-home"></i>
+          </a>
+        </li>
+        <li class="nav-item active" *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/home/teacher" routerLinkActive="active">Teacher Home
             <span class="sr-only">(current)</span>
             <i class="fas fa-home"></i>
           </a>

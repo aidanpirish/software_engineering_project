@@ -26,6 +26,7 @@ import { GlobalService } from './global/global.service';
 import { StudentLoginComponent } from './login/student-login/student-login.component';
 import { BattleModule } from './authenticated-pages/battle/battle.module';
 import { StudentSignupComponent } from './authenticated-pages/student-signup/student-signup.component';
+import { LeaderboardComponent } from './authenticated-pages/leaderboard/leaderboard.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { StudentSignupComponent } from './authenticated-pages/student-signup/stu
     StudentLoginComponent,
     SignupComponent,
     PageNotFoundComponent,
-    LevelSelectComponent
+    LevelSelectComponent,
+    LeaderboardComponent
   ],
   imports: [
     FormsModule,

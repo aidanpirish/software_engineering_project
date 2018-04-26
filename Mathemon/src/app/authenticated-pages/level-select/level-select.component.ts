@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ParticipantService } from '../battle/participant/participant.service';
+import { GlobalService } from '../../global/global.service';
 
 @Component({
   selector: 'app-level-select',
@@ -7,11 +8,15 @@ import { ParticipantService } from '../battle/participant/participant.service';
   styleUrls: ['./level-select.component.scss'],
   providers:[]
 })
-export class LevelSelectComponent implements OnInit {
+export class LevelSelectComponent{
 
-  constructor(private participantService: ParticipantService) { }
+  highestLevel:number = 10000;
 
-  ngOnInit() {
-  }
+  constructor(private participantService: ParticipantService, private global:GlobalService) {
+    if(this.global.currentUserStudent.value != null){
+      this.highestLevel = this.global.currentUserStudent.value.highestLevel;
+    }
+   }
+
 
 }

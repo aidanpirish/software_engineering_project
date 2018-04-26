@@ -54,7 +54,10 @@ export class SignupService implements OnInit {
        picture:"",
        hp:4,
        type:'student',
-       refId:''
+       refId:'',
+       problemsFinished:0,
+       problemsCorrect:0,
+       highestLevel:1
      })
      .then(value => {
        this.studentCollection.doc(`${value.id}`).update({
