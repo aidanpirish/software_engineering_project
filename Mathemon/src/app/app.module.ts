@@ -36,8 +36,7 @@ import { LeaderboardComponent } from './authenticated-pages/leaderboard/leaderbo
     StudentLoginComponent,
     SignupComponent,
     PageNotFoundComponent,
-    LevelSelectComponent,
-    LeaderboardComponent
+    LevelSelectComponent
   ],
   imports: [
     FormsModule,

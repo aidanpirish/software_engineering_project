@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { GlobalService } from '../../global/global.service';
 import { Student } from '../../interfaces/user.interface';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-leaderboard',
@@ -10,13 +11,47 @@ import { Student } from '../../interfaces/user.interface';
 })
 export class LeaderboardComponent implements OnInit {
 
-  students:Student[]
+  studentCollection:AngularFirestoreCollection<Student>;
+  oStudents:Observable<Student[]>;
+  students:Student[];
 
   constructor(private db:AngularFirestore, private global:GlobalService) {
-    this.db.collection('Teachers').doc(`${this.global.currentUserStudent.value.teacherId}`)
-   }
+  }
 
   ngOnInit() {
+    console.log("teacherID", this.global.currentUserStudent.value.teacherId);
+    this.studentCollection = this.db.collection('Students', ref => ref.where('teacherId', '==', this.global.currentUserStudent.value.teacherId))
+    this.oStudents = this.studentCollection.valueChanges();
+    this.oStudents.subscribe(students => {
+      this.students = students;
+      //Organize leaderboard
+      this.organizeLeaderboard();
+    });
   }
+
+  private organizeLeaderboard(){
+    this.students.sort((a, b) => {
+      //sort by highest level
+      if(a.highestLevel > b.highestLevel){
+        return -1;
+      }
+      else if(a.highestLevel < b.highestLevel){
+        return 1;
+      }
+
+      //if the level is the same
+      if((a.problemsCorrect/a.problemsFinished) > (b.problemsCorrect/b.problemsFinished)){
+        return -1;
+      }
+      else{
+        return 1;
+      }
+
+
+    });
+    console.log(this.students);
+  }
+
+
 
 }

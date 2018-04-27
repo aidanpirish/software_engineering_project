@@ -11,6 +11,7 @@ import { StudentSignupComponent } from './student-signup/student-signup.componen
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
 import { ProblemEditComponent } from './problem-edit/problem-edit.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 //these routes are for all pages that need a user to be logged in in order to access
 const authRoutes: Routes  = [
@@ -53,7 +54,13 @@ const authRoutes: Routes  = [
   path:'problem-edit',
   canActivate:[AuthGuard],
   component:ProblemEditComponent
+  },
+  {
+  path:'leaderboard',
+  canActivate:[AuthGuard],
+  component:LeaderboardComponent
   }
+
 
 ]
 
@@ -68,7 +75,8 @@ const authRoutes: Routes  = [
     StudentSignupComponent,
     SignupSuccessComponent,
     AvatarSelectionComponent,
-    ProblemEditComponent
+    ProblemEditComponent,
+    LeaderboardComponent
   ],
   exports: [
     RouterModule
