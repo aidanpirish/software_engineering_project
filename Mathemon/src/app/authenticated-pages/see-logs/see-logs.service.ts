@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { Student, Teacher } from '../../interfaces/user.interface';
@@ -11,12 +11,21 @@ export class SeeLogsService{
   //databaser variables
   studentCollections: AngularFirestoreCollection<Student>;
   studentsO:Observable<Student[]>
+  studentLogsCollections: AngularFirestoreCollection<any>;
+  studentsLogsO:Observable<any[]>
+
+  studentLog: AngularFirestoreDocument<any>;
+  studentLogO: Observable<any>
+
 
   //Students Array
   teachersStudent: Student[] = [];
+  studentsLogs: any[] = [];
 
   //teacher ID
-  teacherID: String = `${this.global.currentUserTeacher.value.refId}`
+  teacherId: String = `${this.global.currentUserTeacher.value.refId}`
+
+  currStudentID: string;
 
 
   constructor(
@@ -24,13 +33,35 @@ export class SeeLogsService{
     private global: GlobalService
   ) {
 
+  }
+
+  public callStudents(){
     //get students
-    this.studentCollections =  this.db.collection('Students', ref => ref.where('teacherID', '==', this.teacherID ));
+    this.studentCollections =  this.db.collection('Students', ref => ref.where('teacherId', '==', this.teacherId ));
     this.studentsO = this.studentCollections.valueChanges();
-
-
+    this.studentsO.subscribe( studentProfiles => {
+      this.teachersStudent = studentProfiles });
 
   }
+
+  public getStudetnLogs(studentID:string){
+    this.currStudentID = studentID;
+
+    this.studentLogsCollections = this.db.collection('Students').doc(studentID).collection('Logs');
+    this.studentsLogsO = this.studentLogsCollections.valueChanges();
+    this.studentsLogsO.subscribe( logsDoc => {
+      this.studentsLogs = logsDoc })
+
+  }
+
+  public getSingleLog(logId:string){
+    this.studentLog = this.db.collection('Students').doc(this.currStudentID).collection('Logs').doc(logId);
+    this.studentLogO = this.studentLogsCollections.valueChanges();
+    this.studentLogO.subscribe( logsDoc => {
+      this.studentLog = logsDoc })
+
+  }
+
 
 }
 
