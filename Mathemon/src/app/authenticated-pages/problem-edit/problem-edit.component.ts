@@ -26,6 +26,8 @@ export class ProblemEditComponent {
 
   //sorts the problems into their different types
   sortProblems() {
+    this.onesTensQuestions = new Array<any>();
+    this.addSubQuestions = new Array<any>();
     for (let problem of this.questions) {
       if (problem.expression == 'ones' || problem.expression == 'tens' || problem.expression == 'hundreds') {
         this.onesTensQuestions.push(problem);
