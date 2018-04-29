@@ -11,7 +11,7 @@ import { CurrentBattleStatusService } from '../current-battle-status.service';
   selector: 'app-battle-ground',
   templateUrl: './battle-ground.component.html',
   styleUrls: ['./battle-ground.component.scss'],
-  providers:[CurrentBattleStatusService]
+  providers:[BattleService, CurrentBattleStatusService]
 })
 export class BattleGroundComponent implements OnInit {
 
@@ -23,13 +23,12 @@ export class BattleGroundComponent implements OnInit {
     private battleService: BattleService,
     private currentBattleStatusService: CurrentBattleStatusService
   ) {
+  }
+
+  ngOnInit() {
     this.battleService.solvedResult.subscribe(result => this.solutionStatus = result);
     this.currentBattleStatusService.battleOver.subscribe(value => this.battleOver = value);
     this.currentBattleStatusService.winner.subscribe(value => this.winner  = value);
-  }
-  
-  ngOnInit() {
-
   }
 
   resetSolutionStatus():void {

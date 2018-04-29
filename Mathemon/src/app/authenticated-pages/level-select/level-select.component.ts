@@ -8,15 +8,18 @@ import { GlobalService } from '../../global/global.service';
   styleUrls: ['./level-select.component.scss'],
   providers:[]
 })
-export class LevelSelectComponent{
+export class LevelSelectComponent implements OnInit{
 
   highestLevel:number = 10000;
 
   constructor(private participantService: ParticipantService, private global:GlobalService) {
+  }
+
+  ngOnInit(){
     if(this.global.currentUserStudent.value != null){
       this.highestLevel = this.global.currentUserStudent.value.highestLevel;
     }
-   }
+  }
 
 
 }

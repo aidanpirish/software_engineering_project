@@ -5,6 +5,7 @@ import { Participant } from '../../../interfaces/participantINT.interface';
 import { GlobalService } from '../../../global/global.service';
 import { Teacher } from '../../../interfaces/user.interface';
 import { CurrentBattleStatusService } from '../current-battle-status.service';
+import { BattleService } from '../battle.service';
 
 @Component({
   selector: 'app-battle-window',
