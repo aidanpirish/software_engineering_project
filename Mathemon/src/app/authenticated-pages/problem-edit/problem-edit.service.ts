@@ -56,7 +56,22 @@ export class ProblemEditService {
      * this method needs to PUT a question into the list. Look up angularfire2 documentation on adding a new document (questions are documents)
      */
     //this.db.questionCollection()
-    this.db.collection
+    if (problem.expression == 'ones' || problem.expression == 'tens' || problem.expression == 'hundreds') {
+      this.db.collection("Teachers").doc(`${this.teacher.value.refId}`).collection("Questions")
+      .add({ ones: problem.ones, tens: problem.tens, hundreds: problem.hundreds, expression: problem.expression, diff: problem.diff }).then(function() {
+        console.log("Document successfully added!");
+      }).catch(function(error) {
+        console.error("Error updating document: ", error); 
+      });
+    }
+    else {
+      this.db.collection("Teachers").doc(`${this.teacher.value.refId}`).collection("Questions")
+      .add({ left_side: problem.left_side, right_side: problem.right_side, expression: problem.expression, diff: problem.diff }).then(function() {
+        console.log("Document successfully added!");
+      }).catch(function(error) {
+        console.error("Error updating document: ", error);
+      });
+    }
   }
 
   //deletes question from datadatabase

@@ -37,10 +37,10 @@
               <input type="text" #expression>
             </td>
             <td>
-              <input type="number" #difficulty>
+              <input type="number" #diff>
             </td>
             <td>
-            <td (click)="addProblem(problem.id)">
+            <td (click)="addProblem({left_side:leftSide.value, right_side:rightSide.value, expression:expression.value, diff: diff.value})">
               <i class="fas fa-plus"></i>
             </td>
             <td></td>
@@ -76,21 +76,21 @@
             </tr>
             <tr>
               <td>
-                <input name="ones" type="text" #ones>
+                <input name="ones" type="number" #ones>
               </td>
               <td>
-                <input name="tens" type="text" #tens>
+                <input name="tens" type="number" #tens>
               </td>
               <td>
-                <input name="hundreds" type="text" #hundreds>
+                <input name="hundreds" type="number" #hundreds>
               </td>
               <td>
                 <input name="expression" type="text" #expression2>
               </td>
               <td>
-                <input name="difficulty" type="text" #diff>
+                <input name="difficulty" type="number" #diff2>
               </td>
-              <td (click)="addProblem(problem.id)">
+              <td (click)="addProblem({ones:ones.value, tens:tens.value, hundreds:hundreds.value, expression:expression2.value, diff: diff2.value})">
                 <i class="fas fa-plus"></i>
               </td>
               <td></td>
