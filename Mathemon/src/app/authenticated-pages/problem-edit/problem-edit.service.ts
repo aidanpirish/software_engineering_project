@@ -33,17 +33,21 @@ export class ProblemEditService {
      */
     //this.questionCollection
     if (question.expression == 'ones' || question.expression == 'tens' || question.expression == 'hundreds') {
-      this.db.collection("Teachers").doc(`${this.teacher.value.refId}`).collection("Questions").doc(`${question.id}`)
-      .update({ ones: question.ones, tens: question.tens, hundreds: question.hundreds, expression: question.expression, diff: question.diff }).then(function() {
+      this.db.collection("Teachers").doc(`${this.teacher.value.refId}`).collection("Questions").doc(`${question.id}`).delete().then( () => {
+        this.db.collection("Teachers").doc(`${this.teacher.value.refId}`).collection("Questions")
+        .add({ ones: question.ones, tens: question.tens, hundreds: question.hundreds, expression: question.expression, diff: question.diff }).then(function() {
         console.log("Document successfully updated!");
+        });
       }).catch(function(error) {
-        console.error("Error updating document: ", error); 
+        console.error("Error updating document: ", error);
       });
     }
     else {
-      this.db.collection("Teachers").doc(`${this.teacher.value.refId}`).collection("Questions").doc(`${question.id}`)
-      .update({ left_side: question.left_side, right_side: question.right_side, expression: question.expression, diff: question.diff }).then(function() {
-        console.log("Document successfully updated!");
+      this.db.collection("Teachers").doc(`${this.teacher.value.refId}`).collection("Questions").doc(`${question.id}`).delete().then( () => {
+        this.db.collection("Teachers").doc(`${this.teacher.value.refId}`).collection("Questions")
+        .add({ left_side: question.left_side, right_side: question.right_side, expression: question.expression, diff: question.diff }).then(function() {
+          console.log("Document successfully updated!");
+        })
       }).catch(function(error) {
         console.error("Error updating document: ", error);
       });
@@ -61,7 +65,7 @@ export class ProblemEditService {
       .add({ ones: problem.ones, tens: problem.tens, hundreds: problem.hundreds, expression: problem.expression, diff: problem.diff }).then(function() {
         console.log("Document successfully added!");
       }).catch(function(error) {
-        console.error("Error updating document: ", error); 
+        console.error("Error updating document: ", error);
       });
     }
     else {
