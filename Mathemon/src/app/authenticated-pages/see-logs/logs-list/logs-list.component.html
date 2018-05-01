@@ -1,14 +1,14 @@
-<p>
-  logs-list works!
-</p>
+<div class="jumbotron">
+  <h1>STUDENT'S LOGS</h1>
+  <div class="container">
 
-<div>
-    <table>
-      <tr *ngFor = "let log of logs; let i = index" >
-        <td (click)="emitStudentClicked(student.refId)" >
-          {{logs.date}}
+    <table class="table table-striped">
+      <tr *ngFor = "let log of logList; let i = index" >
+        <td (click)="emitLogClicked(log.id)" >
+          {{log.date}}
         </td>
       </tr>
     </table>
 
+  </div>
   </div>

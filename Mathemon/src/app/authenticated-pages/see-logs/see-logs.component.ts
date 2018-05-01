@@ -21,7 +21,14 @@ export class SeeLogsComponent implements OnInit {
   }
 
   catchStudent(studentId){
+    this.studentSelected = true;
     this.SeeLogs_Service.getStudetnLogs(studentId);
+  }
+
+  catchLog(logId){
+    this.logSelected = true;
+    console.log(this.logSelected);
+    this.SeeLogs_Service.getSingleLog(logId);
   }
 
 

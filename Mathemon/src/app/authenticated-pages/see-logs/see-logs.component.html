@@ -1,6 +1,3 @@
-<p>
-  see-logs works!
-</p>
-
-
-<app-student-list (studentClicked)="catchStudent($event)"></app-student-list>
+<app-student-list *ngIf="!studentSelected && !logSelected" (studentClicked)="catchStudent($event)"></app-student-list>
+<app-logs-list *ngIf="studentSelected && !logSelected" (logClicked)="catchLog($event)"></app-logs-list>
+<app-view-respones *ngIf="studentSelected && logSelected"></app-view-respones>

@@ -1,3 +1,20 @@
-<p>
-  view-respones works!
-</p>
+<div class="jumbotron">
+    <h1>LOG</h1>
+    <div class="container">
+      <table class="table table-striped">
+        <tr *ngFor = "let thing of log; let i = index" >
+          <td *ngIf="thing.problem">
+            {{thing.problem}}
+          </td>
+          <td *ngIf="thing.isCorrect">
+            Correct
+          </td>
+          <td *ngIf="thing.isCorrect == false">
+            Wrong
+          </td>
+          <!-- Put the picture undernet? -->
+        </tr>
+      </table>
+    </div>
+
+  </div>

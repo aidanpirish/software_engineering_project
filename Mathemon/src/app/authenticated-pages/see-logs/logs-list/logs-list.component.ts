@@ -10,15 +10,18 @@ import { SeeLogsService } from '../see-logs.service';
 export class LogsListComponent implements OnInit {
 
   logList:any[];
-  @Output()logsClicked = new EventEmitter()
+  @Output()logClicked = new EventEmitter()
   constructor(private SeeLogs_Service:SeeLogsService) { }
 
   ngOnInit() {
-    this.logList = this.SeeLogs_Service.studentsLogs;
+    this.SeeLogs_Service.studentsLogs.subscribe(logs => {
+      this.logList = logs;
+    });
   }
 
   emitLogClicked(logId:string){
-    this.logsClicked.emit(logId);
+    console.log(logId);
+    this.logClicked.emit(logId);
   }
 
 }

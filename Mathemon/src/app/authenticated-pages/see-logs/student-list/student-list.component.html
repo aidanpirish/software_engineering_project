@@ -1,15 +1,14 @@
-<p>
-  student-list works!
-</p>
-
-<div>
-  <table>
-    <tr *ngFor = "let student of students; let i = index" >
-      <td (click)="emitStudentClicked(student.refId)" >
-        {{student.name.firstName}} {{student.name.lastName}}
-      </td>
-      <!-- Put the picture undernet? -->
-    </tr>
-  </table>
+<div class="jumbotron">
+  <h1>STUDENT LIST</h1>
+  <div class="container">
+    <table class="table table-striped">
+      <tr *ngFor = "let student of students; let i = index" >
+        <td (click)="emitStudentClicked(student.refId)" >
+          {{student.name.firstName}} {{student.name.lastName}}
+        </td>
+        <!-- Put the picture undernet? -->
+      </tr>
+    </table>
+  </div>
 
 </div>

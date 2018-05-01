@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SeeLogsService } from '../see-logs.service';
 
 @Component({
   selector: 'app-view-respones',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewResponesComponent implements OnInit {
 
-  constructor() { }
+  log:any;
+  constructor(private SeeLogs_Service:SeeLogsService) { }
 
   ngOnInit() {
+    this.SeeLogs_Service.studentLogB.subscribe(log => {
+      this.log = log;
+    })
   }
 
 }

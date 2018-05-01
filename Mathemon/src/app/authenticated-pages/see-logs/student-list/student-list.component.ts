@@ -15,10 +15,13 @@ export class StudentListComponent implements OnInit {
   constructor(private SeeLogs_Service:SeeLogsService) { }
 
   ngOnInit() {
-    this.students = this.SeeLogs_Service.teachersStudent;
+    this.SeeLogs_Service.teachersStudent.subscribe(students => {
+      this.students = students;
+    });
   }
 
   emitStudentClicked(studentId:string){
+    console.log(studentId);
     this.studentClicked.emit(studentId);
   }
 
