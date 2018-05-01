@@ -58,6 +58,7 @@ const authRoutes: Routes  = [
   canActivate:[AuthGuard],
   component:SeeLogsComponent
   },
+  {
   path:'problem-edit',
   canActivate:[AuthGuard],
   component:ProblemEditComponent
