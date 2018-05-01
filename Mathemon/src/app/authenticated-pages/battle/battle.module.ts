@@ -23,6 +23,6 @@ import { BattleService } from './battle.service';
     MathProblemComponent,
     ParticipantComponent
   ],
-  providers:[ParticipantService, BattleService]
+  providers:[ParticipantService]
 })
 export class BattleModule { }

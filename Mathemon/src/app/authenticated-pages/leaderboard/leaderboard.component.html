@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1>LEADERBOARD</h1>
+  <div  class="container">
+    <table class="table table-striped">
+      <tr>
+        <td>Position</td>
+        <td>Student Name</td>
+        <td>Highest Level</td>
+        <td>Percent Correct</td>
+      </tr>
+      <tr *ngFor="let student of students; let i = index">
+        <td>
+          {{i+1}}
+        </td>
+        <td>
+          {{student.name.firstName}} {{student.name.lastName}}
+        </td>
+        <td>
+          {{student.highestLevel}}
+        </td>
+        <td>
+          {{student.problemsCorrect/student.problemsFinished | percent }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

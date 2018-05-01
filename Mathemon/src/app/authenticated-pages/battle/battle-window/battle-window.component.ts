@@ -5,6 +5,7 @@ import { Participant } from '../../../interfaces/participantINT.interface';
 import { GlobalService } from '../../../global/global.service';
 import { Teacher } from '../../../interfaces/user.interface';
 import { CurrentBattleStatusService } from '../current-battle-status.service';
+import { BattleService } from '../battle.service';
 
 @Component({
   selector: 'app-battle-window',
@@ -31,6 +32,7 @@ export class BattleWindowComponent implements OnInit {
     this.currentBattleStatusService.user.subscribe(value => this.user = value);
     this.route.params.subscribe(params => {
       this.participantService.setMonster(params.id);
+      this.currentBattleStatusService.currentLevel = params.id;
       this.participantService.monster.subscribe(monster => {
         this.currentBattleStatusService.monster.next(monster);
       })

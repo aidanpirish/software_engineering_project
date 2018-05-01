@@ -1,3 +1,105 @@
-<p>
-  problem-edit works!
-</p>
+<div class="jumbotron">
+
+  <div class="container">
+    <h1>Edit Questions</h1>
+
+    <div class="regular-expression data-table">
+      <h2>Regular Expression</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Left-Side</th>
+            <th scope="col">Right-Side</th>
+            <th scope="col">Expression</th>
+            <th scope="col">Difficulty</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let question of addSubQuestions; let index = index" class = "questions">
+            <td id="reg_left"><input type="number" [(ngModel)]="addSubQuestions[index].left_side"></td>
+            <td id="reg_right"><input type="number" [(ngModel)]="addSubQuestions[index].right_side"></td>
+            <td id="reg_expr"><input type="text" [(ngModel)]="addSubQuestions[index].expression"></td>
+            <td id="reg_"><input type="number" [(ngModel)]="addSubQuestions[index].diff"></td>
+            <td (click)="editProblem(question)"><i class="far fa-edit"></i></td>
+            <td (click)="deleteProblem(question)"><i class="far fa-trash-alt"></i></td>
+          </tr>
+
+          <tr>
+            <td>
+              <input type="number" #leftSide>
+            </td>
+            <td>
+              <input type="number" #rightSide>
+            </td>
+            <td>
+              <input type="text" #expression>
+            </td>
+            <td>
+              <input type="number" #diff>
+            </td>
+            <td>
+            <td (click)="addProblem({left_side:leftSide.value, right_side:rightSide.value, expression:expression.value, diff: diff.value})">
+              <i class="fas fa-plus"></i>
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="value-at-position data-table">
+      <h2>Value at Position</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">1s</th>
+            <th scope="col">10s</th>
+            <th scope="col">100s</th>
+            <th scope="col">Expression</th>
+            <th scope="col">Dificulty</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let question of onesTensQuestions" class = "questions">
+                <td><input type="number" [(ngModel)]="question.ones"></td>
+                <td><input type="number" [(ngModel)]="question.tens"></td>
+                <td><input type="number" [(ngModel)]="question.hundreds"></td>
+                <td><input type="text" [(ngModel)]="question.expression"></td>
+                <td><input type="number" [(ngModel)]="question.diff"></td>
+                <td (click)="editProblem(question)"><i class="far fa-edit"></i></td>
+                <td (click)="deleteProblem(question)"><i class="far fa-trash-alt"></i></td>
+            </tr>
+            <tr>
+              <td>
+                <input name="ones" type="number" #ones>
+              </td>
+              <td>
+                <input name="tens" type="number" #tens>
+              </td>
+              <td>
+                <input name="hundreds" type="number" #hundreds>
+              </td>
+              <td>
+                <input name="expression" type="text" #expression2>
+              </td>
+              <td>
+                <input name="difficulty" type="number" #diff2>
+              </td>
+              <td (click)="addProblem({ones:ones.value, tens:tens.value, hundreds:hundreds.value, expression:expression2.value, diff: diff2.value})">
+                <i class="fas fa-plus"></i>
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+
+      </table>
+    </div>
+
+
+  </div>
+</div>

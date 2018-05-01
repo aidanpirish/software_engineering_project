@@ -25,5 +25,8 @@ export interface Student extends User {
     hp:number;
     picture:any;
     teacherId:string;
+    problemsFinished:number;
+    problemsCorrect:number;
+    highestLevel:number;
 
 }

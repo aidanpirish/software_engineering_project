@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnChanges } from '@angular/core';
+import { Component, Input, Output, OnChanges, OnInit } from '@angular/core';
 import { problem } from '../../../interfaces/problem.interface';
 import { CurrentBattleStatusService } from '../current-battle-status.service';
 
@@ -8,16 +8,18 @@ import { CurrentBattleStatusService } from '../current-battle-status.service';
   styleUrls: ['./moveset-box.component.scss'],
   providers: []
 })
-export class MovesetBoxComponent {
+export class MovesetBoxComponent implements OnInit {
 
   choseProblem:boolean = false;
   isAttackMove:boolean = true;
   currentProblem:number;
 
-  constructor(private currentBattleStatusService: CurrentBattleStatusService) { 
-    this.currentBattleStatusService.isAttacking.subscribe(value => this.isAttackMove = value);
+  constructor(private currentBattleStatusService: CurrentBattleStatusService) {
   }
 
+  ngOnInit(): void {
+    this.currentBattleStatusService.isAttacking.subscribe(value => this.isAttackMove = value);
+  }
 
   isClicked(problemNumber){
     switch(problemNumber){

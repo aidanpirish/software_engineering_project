@@ -87,8 +87,15 @@ export class MathProblemComponent implements OnChanges {
     if(this.currentBattleStatusService.isAttacking.value){
       if(answer == this.solution){
         if(this.global.currentUserStudent != null){
+          // Log the problem
           this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
           .collection('Logs').doc(`${this.global.currLogId}`).update({[key]:{problem:this.problemString, isCorrect:true}});
+          //increment the number of problems finished and correct
+          this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
+          .update(
+            {problemsFinished:this.global.currentUserStudent.value.problemsFinished+1, problemsCorrect:this.global.currentUserStudent.value.problemsCorrect+1}
+          );
+          this.global.currentUserStudent.next({...this.global.currentUserStudent.value, problemsFinished:this.global.currentUserStudent.value.problemsFinished+1, problemsCorrect:this.global.currentUserStudent.value.problemsCorrect+1});
         }
         this.battleService.setSolvedResult('Correct!');
         let monster = this.currentBattleStatusService.monster.value;
@@ -100,6 +107,11 @@ export class MathProblemComponent implements OnChanges {
         if(this.global.currentUserStudent != null){
           this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
           .collection('Logs').doc(`${this.global.currLogId}`).update({[key]:{problem:this.problemString, isCorrect:false}});
+          this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
+          .update(
+            {problemsFinished:this.global.currentUserStudent.value.problemsFinished+1}
+          );
+          this.global.currentUserStudent.next({...this.global.currentUserStudent.value, problemsFinished:this.global.currentUserStudent.value.problemsFinished+1});
         }
         this.battleService.setSolvedResult('Wrong!');
       }
@@ -110,12 +122,22 @@ export class MathProblemComponent implements OnChanges {
           this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
           .collection('Logs').doc(`${this.global.currLogId}`).update({[key]:{problem:this.problemString, isCorrect:true}});
         }
+        this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
+          .update(
+            {problemsFinished:this.global.currentUserStudent.value.problemsFinished+1, problemsCorrect:this.global.currentUserStudent.value.problemsCorrect+1}
+          );
+          this.global.currentUserStudent.next({...this.global.currentUserStudent.value, problemsFinished:this.global.currentUserStudent.value.problemsFinished+1, problemsCorrect:this.global.currentUserStudent.value.problemsCorrect+1});
         this.battleService.setSolvedResult('Correct!');
       }
       else{
         if(this.global.currentUserStudent != null){
           this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
           .collection('Logs').doc(`${this.global.currLogId}`).update({[key]:{problem:this.problemString, isCorrect:false}});
+          this.db.collection('Students').doc(`${this.global.currentUserStudent.value.refId}`)
+          .update(
+            {problemsFinished:this.global.currentUserStudent.value.problemsFinished+1}
+          );
+          this.global.currentUserStudent.next({...this.global.currentUserStudent.value, problemsFinished:this.global.currentUserStudent.value.problemsFinished+1});
         }
         this.battleService.setSolvedResult('Wrong!');
         let user = this.currentBattleStatusService.user.value;

@@ -11,6 +11,10 @@ import { StudentSignupComponent } from './student-signup/student-signup.componen
 import { SignupSuccessComponent } from './signup-success/signup-success.component';
 import { AvatarSelectionComponent } from './avatar-selection/avatar-selection.component';
 import { SeeLogsComponent } from './see-logs/see-logs.component';
+import { ProblemEditComponent } from './problem-edit/problem-edit.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 //these routes are for all pages that need a user to be logged in in order to access
 const authRoutes: Routes  = [
@@ -54,6 +58,15 @@ const authRoutes: Routes  = [
   canActivate:[AuthGuard],
   component:SeeLogsComponent
   },
+  path:'problem-edit',
+  canActivate:[AuthGuard],
+  component:ProblemEditComponent
+  },
+  {
+  path:'leaderboard',
+  canActivate:[AuthGuard],
+  component:LeaderboardComponent
+  }
 
 
 ]
@@ -62,13 +75,17 @@ const authRoutes: Routes  = [
 @NgModule({
   imports: [
     RouterModule.forChild(authRoutes),
-    CommonModule
+    CommonModule,
+    FormsModule,
+    BrowserModule
   ],
   declarations:[
     HomePageComponent,
     StudentSignupComponent,
     SignupSuccessComponent,
-    AvatarSelectionComponent
+    AvatarSelectionComponent,
+    ProblemEditComponent,
+    LeaderboardComponent
   ],
   exports: [
     RouterModule

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from './login/login.service';
+import { GlobalService } from './global/global.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent {
 
   constructor(
     db: AngularFirestore,
-    private loginService:LoginService
+    private loginService:LoginService,
+    global:GlobalService
   ){
     this.items = db.collection('items').valueChanges();
   }

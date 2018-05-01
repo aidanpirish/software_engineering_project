@@ -30,6 +30,7 @@ import { SeeLogsComponent } from './authenticated-pages/see-logs/see-logs.compon
 import { StudentListComponent } from './authenticated-pages/see-logs/student-list/student-list.component';
 import { LogsListComponent } from './authenticated-pages/see-logs/logs-list/logs-list.component';
 import { ViewResponesComponent } from './authenticated-pages/see-logs/view-respones/view-respones.component';
+import { LeaderboardComponent } from './authenticated-pages/leaderboard/leaderboard.component';
 
 
 @NgModule({
