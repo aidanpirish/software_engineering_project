@@ -93,6 +93,8 @@ export class LoginService {
   //user wants to logout, proceed to doing so
   logout(): void {
     this.isLoggedIn = false;
+    this.global.currentUserTeacher.next(null);
+    this.global.currentUserStudent.next(null);
     this.redirectUrl = '/student-login';
     this.router.navigate([this.redirectUrl]);
   }

@@ -1,14 +1,20 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Mathemon</a>
+    <a class="navbar-brand">Mathemon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item active" *ngIf="isLoggedIn">
-          <a class="nav-link" routerLink="/home/student" routerLinkActive="active">Home
+        <li class="nav-item active" *ngIf="isLoggedIn && !isTeacher">
+          <a class="nav-link" routerLink="/home/student" routerLinkActive="active">Student Home
+            <span class="sr-only">(current)</span>
+            <i class="fas fa-home"></i>
+          </a>
+        </li>
+        <li class="nav-item active" *ngIf="isLoggedIn && isTeacher">
+          <a class="nav-link" routerLink="/home/teacher" routerLinkActive="active">Teacher Home
             <span class="sr-only">(current)</span>
             <i class="fas fa-home"></i>
           </a>
