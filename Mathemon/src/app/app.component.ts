@@ -24,14 +24,14 @@ export class AppComponent implements OnInit, OnChanges {
 
   ngOnInit(){
     this.items = this.db.collection('items').valueChanges();
+  }
+
+  ngOnChanges(){
     this.global.currentUserTeacher.subscribe(value => {
       if(value != null){
         this.isTeacher = true;
       }
     })
-  }
-
-  ngOnChanges(){
   }
 
 
