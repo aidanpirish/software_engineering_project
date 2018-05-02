@@ -17,6 +17,7 @@ export class BattleService implements OnInit{
   level1Problems: problem[] = [];
   level2Problems: problem[] = [];
   level3Problems: problem[] = [];
+  level4Problems: problem[] = [];
 
   //problem for each possible move
   problem1:BehaviorSubject<problem> = new BehaviorSubject<problem>(null);
@@ -75,7 +76,7 @@ export class BattleService implements OnInit{
           this.level3Problems = [...this.level3Problems, problem];
           continue;
         default:
-          this.level1Problems = [...this.level1Problems, problem];
+          this.level4Problems = [...this.level4Problems, problem];
           continue;
       }
     }
@@ -136,7 +137,7 @@ export class BattleService implements OnInit{
     this.pickRandomProblem(this.level1Problems, this.problem1);
     this.pickRandomProblem(this.level2Problems, this.problem2);
     this.pickRandomProblem(this.level3Problems, this.problem3);
-    this.pickRandomProblem(this.level1Problems, this.problem4);
+    this.pickRandomProblem(this.level4Problems, this.problem4);
 
   }
 
